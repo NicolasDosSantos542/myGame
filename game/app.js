@@ -19,6 +19,7 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
+    console.log("preload this = ", this)
     this.load.image('sky', 'game/assets/sky.png');
     this.load.image('ground', 'game/assets/platform.png');
     this.load.image('star', 'game/assets/star.png');
@@ -123,7 +124,7 @@ function update () {
     
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.setVelocityY(-330);
+        player.setVelocityY(-340);
     }
 
 }
@@ -160,7 +161,24 @@ function hitBomb (player, bomb)
 
     player.anims.play('turn');
 
-    this.physics.remove.collider(player, platforms);
+    this.add.text(50, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
+
+    const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
+                                .setInteractive()
+                                .on("pointerdown",()=>{
+                                    console.log("toto");
+                                    restartGame()
+                                })
 
     gameOver = true;
+
+}
+
+
+function restartGame(){
+    console.log("restart game", game)
+    game.registry.destroy(); // destroy registry
+    game.events.off(); // disable all active events
+    game.scene.restart(); // restart current scene
+
 }
