@@ -5,7 +5,8 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 300 }
+            gravity: { y: 300 },
+            debug:true
         }
     },
     scene: {
@@ -24,7 +25,7 @@ function preload ()
     this.load.image('ground', 'game/assets/platform.png');
     this.load.image('star', 'game/assets/star.png');
     this.load.image('bomb', 'game/assets/bomb.png');
-    this.load.image('fireball', 'game/assets/salameche/fireball.png')
+    this.load.image('fireball', 'game/assets/fireball.png')
     this.load.spritesheet('salamecheMove', 
         'game/assets/salameche/walk.png',
         { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame:2}
@@ -118,6 +119,7 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
     fireballs = this.physics.add.group();
+    console.log("fireballs > ", fireballs)
     // this.physics.add.collider(bomb, fireballs, hitFireball(bomb), null, this)
 
     // fireballs = game.add.group();
@@ -231,11 +233,16 @@ function hitBomb (player, bomb)
 
 function fireball(){
     var fireball=fireballs.create(player.x,player.y, 'fireball');
-    fireball.setVelocityX(160)
-    fireball.setBounce(1);
-    fireball.setCollideWorldBounds(true);
 
-    console.log("fireball tirée");
+    if(player.flipX){
+        fireball.setVelocityX(1600)
+    }else{
+        fireball.setVelocityX(-1600)
+    }
+    // fireball.setBounce(1);
+    // fireball.setCollideWorldBounds(true);
+
+    console.log("fireball tirée", player);
 }
 
 function hitFireball(bomb){
