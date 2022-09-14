@@ -20,76 +20,19 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    console.log("preload this = ", this)
-    this.load.image('sky', 'game/assets/sky.png');
-    this.load.image('ground', 'game/assets/platform.png');
-    this.load.image('star', 'game/assets/star.png');
-    this.load.image('bomb', 'game/assets/bomb.png');
-    this.load.image('fireball', 'game/assets/fireball.png')
-    this.load.spritesheet('salamecheMove', 
-        'game/assets/salameche/walk.png',
-        { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame:2}
-    );
-    this.load.spritesheet('salamecheHit', 
-        'game/assets/salameche/fire_hit.png',
-        { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
-    );
-
+    imageLoader(this);
 }
-var platforms;
-var player;
-var fireballs;
-var cursors;
-var stars;
-var score = 0;
-var scoreText;
-var bomb;
-let keyAttack;
-let keyJ;
-let keyK;
-let keyL;
 
 
 function create ()
 {
-    this.add.image(400, 300, 'sky');
+   createLevelOne(this);
 
-    platforms = this.physics.add.staticGroup();
-    platforms.create(400, 568, 'ground').setScale(3).refreshBody();
-    platforms.create(600, 400, 'ground');
-    platforms.create(50, 250, 'ground');
-    platforms.create(750, 220, 'ground');
+   createPlayer(this)
+
+   animPlayerMoves(this)
 
 
-    player = this.physics.add.sprite(100, 450, 'salamecheMove');
-    player.setBounce(0.2);
-    player.setCollideWorldBounds(true);
-    player.flipX = -1
-
-    this.anims.create({
-        key: 'left',
-        frames: this.anims.generateFrameNumbers('salamecheMove', { start: 0, end: 6}),
-        frameRate: 10,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'turn',
-        frames: [ { key: 'salamecheMove', frame: 0 } ],
-    });
-
-    this.anims.create({
-        key: 'right',
-        frames: this.anims.generateFrameNumbers('salamecheMove', { start: 0, end : 6}),
-        frameRate: 10,
-        repeat: -1
-    });
-    this.anims.create({
-        key:'fireHit',
-        frames : this.anims.generateFrameNumbers('salamecheHit', {start : 9, end : 10}),
-        frameRate : 10,
-        repeat:-1
-    });
 
     cursors = this.input.keyboard.createCursorKeys();
     keyAttack = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
@@ -126,20 +69,11 @@ function create ()
     this.physics.add.collider(fireballs, [platforms], fireballCollide, null, this);
 
     console.log("fireballs > ", fireballs)
-    // this.physics.add.collider(bomb, fireballs, hitFireball(bomb), null, this)
-
-    // fireballs = game.add.group();
-    // fireballs.enableBody = true;
-    // fireballs.physicsBodyType = Phaser.Physics.ARCADE;
- 
-    // fireballs.createMultiple(50, 'fireball');
-    // fireballs.setAll('checkWorldBounds', true);
-    // fireballs.setAll('outOfBoundsKill', true);
-    
 
 
 
 }
+
 
 function update () {
 
@@ -265,7 +199,7 @@ function fireball(){
 
 }
 
-function hitFireball(bomb){
+function receiveAttack(bomb){
     // bomb.destroy();
     // score+=50;
 

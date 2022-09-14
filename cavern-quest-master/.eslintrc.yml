@@ -1,0 +1,14 @@
+extends: semistandard
+env:
+  browser: yes
+  es6: yes
+parserOptions:
+  sourceType: module
+rules:
+  no-var:
+    - error
+  prefer-const:
+    - error
+  prefer-destructuring:
+    - error
+
