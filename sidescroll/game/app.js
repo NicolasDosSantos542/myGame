@@ -44,7 +44,7 @@ var stars;
 var score = 0;
 var scoreText;
 var bomb;
-let keyI;
+let keyAttack;
 let keyJ;
 let keyK;
 let keyL;
@@ -64,6 +64,7 @@ function create ()
     player = this.physics.add.sprite(100, 450, 'salamecheMove');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
+    player.flipX = -1
 
     this.anims.create({
         key: 'left',
@@ -91,7 +92,7 @@ function create ()
     });
 
     cursors = this.input.keyboard.createCursorKeys();
-    keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
+    keyAttack = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
     keyJ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);
     keyK = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.K);
     keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
@@ -119,6 +120,8 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
     fireballs = this.physics.add.group();
+    this.physics.add.collider(fireballs, [platforms], fireballCollide, null, this);
+
     console.log("fireballs > ", fireballs)
     // this.physics.add.collider(bomb, fireballs, hitFireball(bomb), null, this)
 
@@ -136,6 +139,9 @@ function create ()
 }
 
 function update () {
+
+
+
     if (cursors.left.isDown)
     {
         player.flipX=false;
@@ -163,17 +169,16 @@ function update () {
         player.setVelocityY(-340);
     }
 
-    if(Phaser.Input.Keyboard.JustDown(keyI)) {
+    if(Phaser.Input.Keyboard.JustDown(keyAttack)) {
 
         console.log('I key pressed')
         player.setVelocityX(0);
 
         player.anims.play('fireHit', true)
+        fireball();
 
      } else if(keyJ.isDown) {
         console.log('J key pressed')
-        player.anims.play('fireHit', true)
-        fireball();
 
      } else if(keyK.isDown) {
         console.log('K key pressed')        
@@ -232,17 +237,28 @@ function hitBomb (player, bomb)
 }
 
 function fireball(){
-    var fireball=fireballs.create(player.x,player.y, 'fireball');
+    console.log(fireballs.countActive(true))
+    // if(fireballs.countActive(true)){
+        var fireball=fireballs.create(player.x,player.y, 'fireball');
+        fireball.lifespan = 1;
+        fireball.mass = 0
+        if(player.flipX){
+            fireball.setVelocityX(120)
+            fireball.setVelocityY(0)
+            fireball.flipX=true;
 
-    if(player.flipX){
-        fireball.setVelocityX(1600)
-    }else{
-        fireball.setVelocityX(-1600)
-    }
-    // fireball.setBounce(1);
-    // fireball.setCollideWorldBounds(true);
+        }else{
+            fireball.setVelocityX(-120)
+            fireball.setVelocityY(0)
+        }
+        // fireball.setBounce(1);
+        // fireball.setCollideWorldBounds(true);
+        
+        console.log("fireball : ", fireball)
+        console.log("fireball tirée", player);
 
-    console.log("fireball tirée", player);
+    // }
+
 }
 
 function hitFireball(bomb){
@@ -257,5 +273,10 @@ function restartGame(){
     game.registry.destroy(); // destroy registry
     game.events.off(); // disable all active events
     game.scene.restart(); // restart current scene
+
+}
+function fireballCollide(fireball, platform){
+    // fireball.setActive(false).setVisible(false);
+    fireball.destroy();
 
 }
