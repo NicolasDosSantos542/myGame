@@ -119,7 +119,10 @@ function create ()
     this.physics.add.collider(bombs, platforms);
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
-    fireballs = this.physics.add.group();
+    fireballs = this.physics.add.group({
+        lifespan:0.1,
+        allowGravity: false
+    });
     this.physics.add.collider(fireballs, [platforms], fireballCollide, null, this);
 
     console.log("fireballs > ", fireballs)
@@ -240,16 +243,17 @@ function fireball(){
     console.log(fireballs.countActive(true))
     // if(fireballs.countActive(true)){
         var fireball=fireballs.create(player.x,player.y, 'fireball');
-        fireball.lifespan = 1;
-        fireball.mass = 0
+        console.log("touotou", fireball.y)
+
+
         if(player.flipX){
-            fireball.setVelocityX(120)
             fireball.setVelocityY(0)
+            fireball.setVelocityX(400)
             fireball.flipX=true;
 
         }else{
-            fireball.setVelocityX(-120)
             fireball.setVelocityY(0)
+            fireball.setVelocityX(-400)
         }
         // fireball.setBounce(1);
         // fireball.setCollideWorldBounds(true);
