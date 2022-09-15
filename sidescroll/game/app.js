@@ -33,7 +33,6 @@ function create (){
     
     createLevelOne(this);
     
-    
     createPlayer(this)
     this.cameras.main.startFollow(player);
 
@@ -60,7 +59,7 @@ function create (){
 function update () {
 
     // console.log({ "x" : game.input.mousePointer.x, "y" : game.input.mousePointer.y})
-    gogoPikachu();
+    // gogoPikachu();
     playerCommands(this);
 
 
