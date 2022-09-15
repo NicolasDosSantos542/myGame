@@ -31,6 +31,7 @@ function create ()
     createPlayer(this)
 
     animPlayerMoves(this)
+    animPikachuMoves(this)
 
     defineCommands(this)
    
@@ -39,16 +40,20 @@ function create ()
     addBombs(this)
 
     addProjectiles(this)
-
-    addColliders(this)    
-
-
-
+    
+    addEnnemie(this, 'pikachu')
+    
+    
+    
+    
+    addColliders(this)  //doit être impérativement APRÈS les monstres, personnages et plateformes 
 }
 
 
 function update () {
 
+    // console.log({ "x" : game.input.mousePointer.x, "y" : game.input.mousePointer.y})
+    gogoPikachu();
     playerCommands(this);
 
 

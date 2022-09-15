@@ -12,3 +12,4 @@ let keyAttack;
 let keyJ;
 let keyK;
 let keyL;
+let pikachus;

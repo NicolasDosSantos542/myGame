@@ -7,7 +7,7 @@ function imageLoader(game){
     game.load.image('star', 'game/assets/star.png');
     //load weapons
     game.load.image('bomb', 'game/assets/bomb.png');
-    game.load.image('fireball', 'game/assets/fireball.png')
+    game.load.image('fireball', 'game/assets/attacks/fireball.png')
     //load player
     game.load.spritesheet('salamecheMove', 
         'game/assets/salameche/walk.png',
@@ -18,27 +18,39 @@ function imageLoader(game){
         { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
     );
     //anim pika
-    // game.load.spritesheet('pikachu',
-    //     './spriteSheet/pika/spritePikachu1.png',
-    //     { frameWidth: 60, frameHeight: 60, endFrame: 0});
-    // game.load.spritesheet('pikachuMooveRight1',
-    //     './spriteSheet/pika/pikachuMooveRight2.png',
-    //     { frameWidth: 60, frameHeight: 60, endFrame: 1 });
-    // game.load.spritesheet('pikachuMooveLeft1',
-    //     './spriteSheet/pika/spritePikachuMooveLeft3.png',
-    //     { frameWidth: 60, frameHeight: 60, endFrame: 1 });
-    // game.load.spritesheet('jumpPikachu1',
-    //     './spriteSheet/pika/jumpPikachu1.png',
-    //     { frameWidth: 60, frameHeight: 60, endFrame: 1 });
-    // game.load.spritesheet('pikaAtackFoudre',
-    //     './spriteSheet/pika/pikaAtack2.png',
-    //     { frameWidth: 60, frameHeight: 60, endFrame: 0 });
-    // //spell pika
-    // game.load.spritesheet('foudreSpell',
-    //     './spriteSheet/pika/animFoudre1.png',
-    //     { frameWidth: 60, frameHeight: 220, endFrame: 0 });
-    // game.load.spritesheet('eclair',
-    //     './spriteSheet/pika/eclair1.png',
-    //     { frameWidth: 100, frameHeight: 60, endFrame: 0 });
+    game.load.spritesheet('pikachuMove',
+        'game/assets/pika/pikachuMove.png',
+        { frameWidth: 60, frameHeight: 60, endFrame: 2 });
+
+     game.load.spritesheet('pikachu',
+        'game/assets/pika/spritePikachu.png',
+        { frameWidth: 60, frameHeight: 60, endFrame: 0});
+
+
+    game.load.spritesheet('jumpPikachu',
+        'game/assets/pika/jumpPikachu.png',
+        { frameWidth: 60, frameHeight: 60, endFrame: 1 })
+        
+
+    game.load.spritesheet('pikaAtackFoudre',
+        'game/assets/pika/pikachuAttack.png',
+        { frameWidth: 60, frameHeight: 60, endFrame: 0 })
+        
+    game.load.spritesheet('pikachuDying',
+        'game/assets/pika/pikachu_die.png',
+        { frameWidth: 61, frameHeight: 47, endFrame: 2 })
+        
+
+    //spell pika
+    game.load.spritesheet('thunderbolt',
+        'game/assets/attacks/thunderbolt.png',
+        { frameWidth: 60, frameHeight: 220, endFrame: 0 })
+        
+
+    game.load.spritesheet('lightning',
+        'game/assets/attacks/lightning.png',
+        { frameWidth: 100, frameHeight: 60, endFrame: 0 })
+        
+
     
 }

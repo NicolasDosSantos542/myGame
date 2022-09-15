@@ -1,6 +1,5 @@
 //contient toutes les fonctions spécifique au joueur et son personnage:
 // attack, receiveAttack, createPlayer (name) etc
-console.log("playeeeer");
 
 function createPlayer(game){
 
@@ -83,7 +82,7 @@ function collectStar (player, star)
 
     }
 }
-function hitBomb (player, bomb)
+function hitEnnemy (player, bomb)
 {
     this.physics.pause();
 
@@ -96,7 +95,6 @@ function hitBomb (player, bomb)
     const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
                                 .setInteractive()
                                 .on("pointerdown",()=>{
-                                    console.log("toto");
                                     restartGame()
                                 })
 
@@ -110,7 +108,6 @@ function fireball(){
     console.log(fireballs.countActive(true))
     // if(fireballs.countActive(true)){
         var fireball=fireballs.create(player.x,player.y, 'fireball');
-        console.log("touotou", fireball.y)
 
 
         if(player.flipX){
@@ -125,8 +122,6 @@ function fireball(){
         // fireball.setBounce(1);
         // fireball.setCollideWorldBounds(true);
         
-        console.log("fireball : ", fireball)
-        console.log("fireball tirée", player);
 
     // }
 
