@@ -6,7 +6,9 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            debug:true
+            debug:true,
+            width: 8000,
+            height: 600,
         }
     },
     scene: {
@@ -20,15 +22,20 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
+   
     imageLoader(this);
 }
 
 
-function create ()
-{
+function create (){
+    console.log("game",game)
+    this.cameras.main.setBounds(0, 0, 8000, 600);
+    
     createLevelOne(this);
-
+    
+    
     createPlayer(this)
+    this.cameras.main.startFollow(player);
 
     animPlayerMoves(this)
     animPikachuMoves(this)
