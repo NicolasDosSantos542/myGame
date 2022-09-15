@@ -7,7 +7,7 @@ var config = {
         arcade: {
             gravity: { y: 300 },
             debug:true,
-            width: 8000,
+            width: 5000,
             height: 600,
         }
     },
@@ -29,7 +29,7 @@ function preload ()
 
 function create (){
     console.log("game",game)
-    this.cameras.main.setBounds(0, 0, 8000, 600);
+    this.cameras.main.setBounds(0, 0, 5000, 600);
     
     createLevelOne(this);
     
@@ -57,7 +57,7 @@ function create (){
 
 
 function update () {
-
+    this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
     // console.log({ "x" : game.input.mousePointer.x, "y" : game.input.mousePointer.y})
     // gogoPikachu();
     playerCommands(this);

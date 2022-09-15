@@ -17,7 +17,6 @@ function addEnnemie(game, string){
 
 function addPikachu(game){
 
-    console.log("toutou")
     pikachus = game.physics.add.group({
         key: 'pikachuMove',
     });
@@ -41,14 +40,12 @@ function receiveAttack(pikachu, fireball){
 }
 
 function gogoPikachu(){
-    console.log("tintin", pikachus.countActive(true))
     if (pikachus.countActive(true) <= 2)
     {
         positions= [130,320,450 ];
         
         const y = positions[Math.floor(Math.random() * positions.length)];
         
-        console.log("milou", y)
    
 
         pikachu = pikachus.create(800,y, 'pikachuMove')

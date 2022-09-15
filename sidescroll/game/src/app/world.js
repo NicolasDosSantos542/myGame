@@ -7,6 +7,16 @@ function createLevelOne(game){
     platforms.create(600, 400, 'ground');
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
+    platforms.create(1200, 400, 'ground');
+    platforms.create(1750, 270, 'ground');
+    platforms.create(2330, 400, 'ground');
+    platforms.create(2330, 120, 'ground');
+    platforms.create(3000, 270, 'ground');
+    platforms.create(3540, 220, 'ground');
+    platforms.create(4000, 300, 'ground');
+    platforms.create(4500, 400, 'ground');
+    
+
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
 
