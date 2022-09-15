@@ -1,5 +1,4 @@
 //toutes les animations
-console.log("aaaaaaaanniiiiiiims")
 function animPlayerMoves(game){
 
     game.anims.create({
@@ -28,13 +27,20 @@ function animPlayerMoves(game){
     });
 }
 
-game.load.image('fireball', 'game/assets/fireball.png')
-game.load.spritesheet('salamecheMove', 
-    'game/assets/salameche/walk.png',
-    { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame:2}
-);
-game.load.spritesheet('salamecheHit', 
-    'game/assets/salameche/fire_hit.png',
-    { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
-);
+function animPikachuMoves(){
+    this.game.anims.create({
+        key: 'pikachuMovesLeft',
+        frames: game.anims.generateFrameNumbers('pikachuMove', { start: 0, end: 4}),
+        frameRate: 10,
+        repeat: -1
+    });
 
+    this.game.anims.create({
+        key : 'pikachuDies',
+        frames: game.anims.generateFrameNumbers('pikachuDying', { start: 2, end: 3}),
+        frameRate : 10,
+        repeat : -1
+
+    })
+
+}

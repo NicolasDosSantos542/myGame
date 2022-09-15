@@ -1,4 +1,3 @@
-console.log("gaaaaaaaaaaaaaame")
 
 function defineCommands(game){
 
@@ -18,9 +17,15 @@ function addColliders(game){
 
     game.physics.add.collider(bombs, platforms);
 
-    game.physics.add.collider(player, bombs, hitBomb, null, game);
+    game.physics.add.collider(player, bombs, hitEnnemy, null, game);
 
     game.physics.add.collider(fireballs, [platforms], fireballCollide, null, game);
+
+    game.physics.add.collider(pikachus, [platforms]);
+
+    game.physics.add.collider(pikachus, fireballs, receiveAttack, null, game);
+
+    game.physics.add.collider(player, pikachus, hitEnnemy, null, game );
 
 }
 
@@ -35,7 +40,6 @@ function addProjectiles(game){
 
 
 function restartGame(){
-    console.log("restart game", game)
     game.registry.destroy(); // destroy registry
     game.events.off(); // disable all active events
     game.scene.restart(); // restart current scene

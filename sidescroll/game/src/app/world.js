@@ -1,5 +1,4 @@
 
-console.log("woooooorld")
 function createLevelOne(game){
     game.add.image(400, 300, 'sky');
 
