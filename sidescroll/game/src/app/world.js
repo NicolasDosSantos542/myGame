@@ -3,18 +3,36 @@ function createLevelOne(game){
     sky = game.add.image(4000, 300, 'sky');
 
     platforms = game.physics.add.staticGroup();
-    platforms.create(400, 568, 'ground').setScale(40, 2).refreshBody();
-    platforms.create(600, 400, 'ground');
-    platforms.create(50, 250, 'ground');
-    platforms.create(750, 220, 'ground');
-    platforms.create(1200, 400, 'ground');
-    platforms.create(1750, 270, 'ground');
-    platforms.create(2330, 400, 'ground');
-    platforms.create(2330, 120, 'ground');
-    platforms.create(3000, 270, 'ground');
-    platforms.create(3540, 220, 'ground');
-    platforms.create(4000, 300, 'ground');
-    platforms.create(4500, 400, 'ground');
+    platforms.create(400, 568, 'ground').setScale(40, 1).refreshBody(); // le sol
+    platform_array.push(platforms.create(600, 400, 'ground'));
+    platform_array.push(platforms.create(50, 250, 'ground'));
+    platform_array.push(platforms.create(750, 220, 'ground'));
+    platform_array.push(platforms.create(1200, 400, 'ground'));
+    platform_array.push(platforms.create(1750, 270, 'ground'));
+    platform_array.push(platforms.create(2330, 400, 'ground'));
+    platform_array.push(platforms.create(2330, 120, 'ground'));
+    platform_array.push(platforms.create(3000, 270, 'ground'));
+    platform_array.push(platforms.create(3540, 220, 'ground'));
+    platform_array.push(platforms.create(4000, 300, 'ground'));
+    platform_array.push(platforms.create(4500, 400, 'ground'));
+
+    invisible_stops = game.physics.add.group()
+    // console.log("typeof platforms",  platform_array)
+
+    platform_array.forEach((element=>{
+        console.log("plateforme : ", element)
+        levelY = element.y;
+        startX = element.x - element.width/2;
+        stopX = element.x + element.width/2;
+        console.log({
+            "levelY" : levelY,
+            "startX" : startX,
+            "stopX" : stopX 
+        })
+        invisible_stops.create(startX, levelY-30).setVisible(false);
+        
+        invisible_stops.create(stopX, levelY-30).setVisible(false);
+    }))
     
 
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });

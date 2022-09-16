@@ -11,15 +11,14 @@ function receiveAttack(bomb){
 function addEnnemie(game, string){
     switch(string){
         case "pikachu" :
+            // console.log(game)
             addPikachu(game)
     }
 }
 
 function addPikachu(game){
 
-    pikachus = game.physics.add.group({
-        key: 'pikachuMove',
-    });
+    pikachus = game.physics.add.group({});
     pikachu = pikachus.create(800,300, 'pikachuMove')
     pikachu.setVelocityX(-160)
     pikachu.anims.play('pikachuMovesLeft',true)
@@ -40,6 +39,7 @@ function receiveAttack(pikachu, fireball){
 }
 
 function gogoPikachu(){
+    console.log("gogo pikachu")
     if (pikachus.countActive(true) <= 2)
     {
         positions= [130,320,450 ];

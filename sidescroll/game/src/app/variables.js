@@ -13,3 +13,6 @@ let keyJ;
 let keyK;
 let keyL;
 let pikachus;
+let invisible_stops;
+
+let platform_array = []
