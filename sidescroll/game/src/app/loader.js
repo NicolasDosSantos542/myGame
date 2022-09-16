@@ -1,7 +1,7 @@
 //toutes les fonctions de loading d'images et de spritesheet (séparées pour les mobs, pour les niveaux, etc)
 function imageLoader(game){
     //load world
-    game.load.image('sky', 'game/assets/sky.png');
+    game.load.image('sky', 'game/assets/sky_big.png');
     game.load.image('ground', 'game/assets/platform.png');
     //load pickers
     game.load.image('star', 'game/assets/star.png');

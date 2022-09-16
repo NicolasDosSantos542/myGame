@@ -1,12 +1,22 @@
 
 function createLevelOne(game){
-    game.add.image(400, 300, 'sky');
+    sky = game.add.image(4000, 300, 'sky');
 
     platforms = game.physics.add.staticGroup();
-    platforms.create(400, 568, 'ground').setScale(3).refreshBody();
+    platforms.create(400, 568, 'ground').setScale(40, 2).refreshBody();
     platforms.create(600, 400, 'ground');
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
+    platforms.create(1200, 400, 'ground');
+    platforms.create(1750, 270, 'ground');
+    platforms.create(2330, 400, 'ground');
+    platforms.create(2330, 120, 'ground');
+    platforms.create(3000, 270, 'ground');
+    platforms.create(3540, 220, 'ground');
+    platforms.create(4000, 300, 'ground');
+    platforms.create(4500, 400, 'ground');
+    
+
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
 
