@@ -3,7 +3,7 @@ function createLevelOne(game){
     sky = game.add.image(4000, 300, 'sky');
 
     platforms = game.physics.add.staticGroup();
-    platforms.create(400, 568, 'ground').setScale(40, 1).refreshBody(); // le sol
+    platforms.create(400, 568, 'ground').setScale(40, 2).refreshBody(); // le sol
     platform_array.push(platforms.create(600, 400, 'ground'));
     platform_array.push(platforms.create(50, 250, 'ground'));
     platform_array.push(platforms.create(750, 220, 'ground'));
@@ -16,7 +16,7 @@ function createLevelOne(game){
     platform_array.push(platforms.create(4000, 300, 'ground'));
     platform_array.push(platforms.create(4500, 400, 'ground'));
 
-    invisible_stops = game.physics.add.group()
+    invisible_stops = game.physics.add.staticGroup()
     // console.log("typeof platforms",  platform_array)
 
     platform_array.forEach((element=>{

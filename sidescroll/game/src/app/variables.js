@@ -14,5 +14,6 @@ let keyK;
 let keyL;
 let pikachus;
 let invisible_stops;
+let ennemies;
 
 let platform_array = []

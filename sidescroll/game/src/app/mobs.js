@@ -56,3 +56,15 @@ function gogoPikachu(){
 
 
 }
+
+function reverseEnnemy(pikachu, invisible_stop){
+    console.log(pikachu.flipX);
+    console.log(pikachu.body.velocity.x);
+    if(pikachu.flipX == true){
+        pikachu.flipX = false;
+        pikachu.setVelocityX (-160);
+    }else{
+        pikachu.flipX = true;
+        pikachu.setVelocityX (160);
+    }
+}

@@ -15,6 +15,8 @@ function addColliders(game){
 
     game.physics.add.collider(invisible_stops, platforms);
 
+    game.physics.add.collider(pikachu, invisible_stops, reverseEnnemy, null, game);
+
     game.physics.add.collider(balls, platforms);
 
     game.physics.add.collider(bombs, platforms);
