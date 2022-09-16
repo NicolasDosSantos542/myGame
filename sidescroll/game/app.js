@@ -1,3 +1,5 @@
+const worldWidth = 6000;
+
 var config = {
     type: Phaser.AUTO,
     width: 800,
@@ -7,7 +9,7 @@ var config = {
         arcade: {
             gravity: { y: 300 },
             debug:true,
-            width: 5000,
+            width: worldWidth,
             height: 600,
         }
     },
@@ -29,7 +31,7 @@ function preload ()
 
 function create (){
     console.log("game",game)
-    this.cameras.main.setBounds(0, 0, 5000, 600);
+    this.cameras.main.setBounds(0, 0, worldWidth, 600);
     
     createLevelOne(this);
     
