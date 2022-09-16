@@ -22,19 +22,19 @@ function createLevelOne(game){
 
 }
 
-function addStars(game){
-    stars = game.physics.add.group({
-        key: 'star',
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
+function addBalls(game){
+    balls = game.physics.add.group({
+        key: 'pokeball',
+        repeat: 20,
+        setXY: { x: 12, y: 0, stepX: 300 }
     });
     
-    stars.children.iterate(function (child) {
+    balls.children.iterate(function (child) {
     
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     
     });
-    game.physics.add.overlap(player, stars, collectStar, null, game);
+    game.physics.add.overlap(player, balls, collectBall, null, game);
     
 }
 
@@ -48,4 +48,13 @@ function fireballCollide(fireball, platform){
     // fireball.setActive(false).setVisible(false);
     fireball.destroy();
 
+}
+
+function addCollectable(game, string){
+
+    balls = game.physics.add.group({
+        key: string,
+        repeat: 20,
+        setXY: { x: 12, y: 0, stepX: 100}
+    });
 }

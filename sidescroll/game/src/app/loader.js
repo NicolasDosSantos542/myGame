@@ -17,15 +17,19 @@ function imageLoader(game){
         'game/assets/sprites/salameche/salameche_fire_hit.png',
         { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
     );
-    //sidescroll/game/assets/images/attacks
-    game.load.image('lightning', 'sidescroll/game/assets/images/attacks/lightning.png') ;
-    game.load.image('rock_5', 'sidescroll/game/assets/images/attacks/rock_5.png') ;
-    game.load.image('fireball', 'sidescroll/game/assets/images/attacks/fireball.png') ;
-    game.load.image('thunderbolt', 'sidescroll/game/assets/images/attacks/thunderbolt.png') ;
-    game.load.image('rock_4', 'sidescroll/game/assets/images/attacks/rock_4.png') ;
-    game.load.image('rock_3', 'sidescroll/game/assets/images/attacks/rock_3.png') ;
-    game.load.image('rock_1', 'sidescroll/game/assets/images/attacks/rock_1.png') ;
-    game.load.image('rock_2', 'sidescroll/game/assets/images/attacks/rock_2.png') ;
+    //game/assets/images/attacks
+    game.load.image('lightning', 'game/assets/images/attacks/lightning.png') ;
+    game.load.image('rock_5', 'game/assets/images/attacks/rock_5.png') ;
+    game.load.image('fireball', 'game/assets/images/attacks/fireball.png') ;
+    game.load.image('thunderbolt', 'game/assets/images/attacks/thunderbolt.png') ;
+    game.load.image('rock_4', 'game/assets/images/attacks/rock_4.png') ;
+    game.load.image('rock_3', 'game/assets/images/attacks/rock_3.png') ;
+    game.load.image('rock_1', 'game/assets/images/attacks/rock_1.png') ;
+    game.load.image('rock_2', 'game/assets/images/attacks/rock_2.png') ;
+    //game/assets/images/collectables
+    game.load.image('pokeball', 'game/assets/images/collectables/pokeball.png') ;
+    game.load.image('superball', 'game/assets/images/collectables/superball.png') ;
+    game.load.image('masterball', 'game/assets/images/collectables/masterball.png') ;
     //anim pika
     game.load.spritesheet('pikachuMove',
         'game/assets/sprites/pika/pikachuMove.png',
@@ -60,15 +64,15 @@ function imageLoader(game){
         'game/assets/images/attacks/lightning.png',
         { frameWidth: 100, frameHeight: 60, endFrame: 0 })
         
-    //sidescroll/game/assets/sprites/onix
+    //game/assets/sprites/onix
     game.load.spritesheet('onix_attack',
-        'sidescroll/game/assets/sprites/onix/onix_attack.png',
+        'game/assets/sprites/onix/onix_attack.png',
         { frameWidth: 50, frameHeight: 115, startFrame:0, endFrame:2}) ;
     game.load.spritesheet('onix',
-        'sidescroll/game/assets/sprites/onix/onix.png',
+        'game/assets/sprites/onix/onix.png',
         { frameWidth: 50, frameHeight: 95, startFrame:0, endFrame:2}) ;
     game.load.spritesheet('onix_hit',
-        'sidescroll/game/assets/sprites/onix/onix_hit.png',
+        'game/assets/sprites/onix/onix_hit.png',
         { frameWidth: 50, frameHeight: 83, startFrame:0, endFrame:2}) ;
 
 }

@@ -4,7 +4,7 @@ print(os.getcwd())
 from PIL import Image
 import glob
 
-root_path = 'sidescroll/game/assets'
+root_path = 'sidescroll/game/assets/images/collectables'
 def create_image_list(path):
     image_list = []
     for filename in glob.glob(path+'/*.png'): #assuming gif

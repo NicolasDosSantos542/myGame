@@ -58,16 +58,16 @@ function playerCommands(game){
      }
 }
 
-function collectStar (player, star)
+function collectBall (player, ball)
 {
-    star.disableBody(true, true);
+    ball.disableBody(true, true);
 
     score += 10;
     scoreText.setText('Score: ' + score);
 
-    if (stars.countActive(true) === 0)
+    if (balls.countActive(true) === 0)
     {
-        stars.children.iterate(function (child) {
+        balls.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
 

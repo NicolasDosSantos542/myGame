@@ -13,7 +13,7 @@ function addColliders(game){
 
     game.physics.add.collider(player, platforms);
 
-    game.physics.add.collider(stars, platforms);
+    game.physics.add.collider(balls, platforms);
 
     game.physics.add.collider(bombs, platforms);
 

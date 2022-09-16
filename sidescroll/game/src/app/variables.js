@@ -4,7 +4,7 @@ var platforms;
 var player;
 var fireballs;
 var cursors;
-var stars;
+var balls;
 var score = 0;
 var scoreText;
 var bomb;

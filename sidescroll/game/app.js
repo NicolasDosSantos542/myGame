@@ -43,7 +43,7 @@ function create (){
 
     defineCommands(this)
    
-    addStars(this)
+    addBalls(this)
 
     addBombs(this)
 
