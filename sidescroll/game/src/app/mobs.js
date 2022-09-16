@@ -12,8 +12,11 @@ function addEnnemie(game, string){
     switch(string){
         case "pikachu" :
             // console.log(game)
-            addPikachu(game)
-    }
+            addPikachu(game);
+            break
+        case "aspicot":
+            addAspicot(game)
+        }
 }
 
 function addPikachu(game){
@@ -34,7 +37,7 @@ function receiveAttack(pikachu, fireball){
     pikachu.anims.play('pikachuDies',true)
     setInterval(function () {pikachu.destroy()}, 1000); 
 
-
+    
 
 }
 
@@ -46,7 +49,7 @@ function gogoPikachu(){
         
         const y = positions[Math.floor(Math.random() * positions.length)];
         
-   
+        
 
         pikachu = pikachus.create(800,y, 'pikachuMove')
         pikachu.setVelocityX(-160)
@@ -67,4 +70,19 @@ function reverseEnnemy(pikachu, invisible_stop){
         pikachu.flipX = true;
         pikachu.setVelocityX (160);
     }
+}
+
+function addAspicot(game){
+    
+    aspicots = game.physics.add.group({});
+    platform_array.forEach((platform)=>{
+        
+        aspicot = aspicots.create(platform.x,platform.y-30, 'aspicotMove')
+        aspicot.anims.play('aspicotMove',true)
+        console.log('youhou')
+        aspicot.setVelocityX(-160)
+        
+    })
+
+    
 }

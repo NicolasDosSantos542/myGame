@@ -15,7 +15,8 @@ function addColliders(game){
 
     game.physics.add.collider(invisible_stops, platforms);
 
-    game.physics.add.collider(pikachu, invisible_stops, reverseEnnemy, null, game);
+    // game.physics.add.collider(pikachu, invisible_stops, reverseEnnemy, null, game);
+    game.physics.add.collider(aspicots, invisible_stops, reverseEnnemy, null, game);
 
     game.physics.add.collider(balls, platforms);
 
@@ -26,10 +27,12 @@ function addColliders(game){
     game.physics.add.collider(fireballs, [platforms], fireballCollide, null, game);
 
     game.physics.add.collider(pikachus, [platforms]);
+    game.physics.add.collider(aspicots, [platforms]);
 
     game.physics.add.collider(pikachus, fireballs, receiveAttack, null, game);
+    game.physics.add.collider(aspicots, fireballs, receiveAttack, null, game);
 
-    game.physics.add.collider(player, pikachus, hitEnnemy, null, game );
+    game.physics.add.collider(player, [pikachus, aspicots], hitEnnemy, null, game );
 
 }
 

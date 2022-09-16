@@ -39,7 +39,7 @@ function create (){
     this.cameras.main.startFollow(player);
 
     animPlayerMoves(this)
-    animPikachuMoves(this)
+    animEnnemyMoves(this)
 
     defineCommands(this)
    
@@ -51,6 +51,7 @@ function create (){
     
     addEnnemie(this, 'pikachu')
     
+    addEnnemie(this, 'aspicot')
     
     
     

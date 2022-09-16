@@ -34,25 +34,23 @@ function imageLoader(game){
     game.load.spritesheet('pikachuMove',
         'game/assets/sprites/pika/pikachuMove.png',
         { frameWidth: 60, frameHeight: 60, endFrame: 2 });
-
      game.load.spritesheet('pikachu',
         'game/assets/sprites/pika/spritePikachu.png',
         { frameWidth: 60, frameHeight: 60, endFrame: 0});
-
-
     game.load.spritesheet('jumpPikachu',
         'game/assets/sprites/pika/jumpPikachu.png',
         { frameWidth: 60, frameHeight: 60, endFrame: 1 })
-        
-
     game.load.spritesheet('pikaAtackFoudre',
         'game/assets/sprites/pika/pikachuAttack.png',
         { frameWidth: 60, frameHeight: 60, endFrame: 0 })
-        
     game.load.spritesheet('pikachuDying',
         'game/assets/sprites/pika/pikachu_die.png',
         { frameWidth: 61, frameHeight: 47, endFrame: 2 })
         
+    //aspicot
+    game.load.spritesheet('aspicotMove',
+    'game/assets/sprites/aspicot/aspicot_move.png',
+    { frameWidth: 56.5, frameHeight: 28, endFrame: 2 })
 
     //spell pika
     game.load.spritesheet('thunderbolt',

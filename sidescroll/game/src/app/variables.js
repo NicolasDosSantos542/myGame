@@ -15,5 +15,7 @@ let keyL;
 let pikachus;
 let invisible_stops;
 let ennemies;
+let playerVelocity = 160;
+let aspicots
 
 let platform_array = []

@@ -14,14 +14,14 @@ function playerCommands(game){
     {
         player.flipX=false;
         
-        player.setVelocityX(-1600);
+        player.setVelocityX(-playerVelocity);
     
         player.anims.play('left', true);
     }
     else if (cursors.right.isDown)
     {
         player.flipX=true;
-        player.setVelocityX(1600);
+        player.setVelocityX(playerVelocity);
     
         player.anims.play('right', true);
     }

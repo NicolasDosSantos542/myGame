@@ -27,7 +27,7 @@ function animPlayerMoves(game){
     });
 }
 
-function animPikachuMoves(){
+function animEnnemyMoves(){
     this.game.anims.create({
         key: 'pikachuMovesLeft',
         frames: game.anims.generateFrameNumbers('pikachuMove', { start: 0, end: 4}),
@@ -43,4 +43,12 @@ function animPikachuMoves(){
 
     })
 
+    this.game.anims.create({
+        key : 'aspicotMove',
+        frames: game.anims.generateFrameNumbers('aspicotMove', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
+
 }
+
