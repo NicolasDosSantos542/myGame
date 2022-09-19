@@ -128,3 +128,7 @@ function addAspicot(game){
     })
     
 }
+
+function addBoss(game){
+    levelBoss = game.physics.add.sprite( 5800,200,'onixMove').setScale(5)
+}

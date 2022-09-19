@@ -52,6 +52,7 @@ function create (){
     
     addEnnemie(this, 'aspicot')
 
+    addBoss(this)
     
     addColliders(this)  //doit être impérativement APRÈS les monstres, personnages et plateformes 
 }

@@ -15,7 +15,7 @@ let keyL;
 let pikachus;
 let invisible_stops;
 let ennemies;
-let playerVelocity = 160;
+let playerVelocity = 1600;
 let aspicots;
 let playerHitEnnemyCollider;
 let bullets;
@@ -25,6 +25,7 @@ let nextRunnerSpawn;
 let nextFlyerSpawn;
 let spawnRate = 3000;
 let runnerEnnemy = "rattata"
-let flyingEnnemy = "roucoups"
+let flyingEnnemy = "roucoups";
+let levelBoss
 
 let platform_array = []
