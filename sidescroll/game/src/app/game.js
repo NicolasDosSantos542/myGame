@@ -32,7 +32,7 @@ function addColliders(game){
     game.physics.add.collider(pikachus, fireballs, receiveAttack, null, game);
     game.physics.add.collider(aspicots, fireballs, receiveAttack, null, game);
 
-    game.physics.add.collider(player, [pikachus, aspicots], hitEnnemy, null, game );
+    playerHitEnnemyCollider = game.physics.add.collider(player, [pikachus, aspicots], hitEnnemy, null, game );
 
 }
 

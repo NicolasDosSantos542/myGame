@@ -30,25 +30,23 @@ function addPikachu(game){
 
 function receiveAttack(ennemy, fireball){
 
-    fireball.destroy()
     ennemyString = findTheEnnemy(ennemy)
-    ennemy.setActive(false).setVelocityY(-120)
-    console.log("ennemy", ennemy.texture.key);
-    ennemy.setVelocityX(0);
     ennemyDies(ennemy, ennemyString)
+    fireball.destroy()
+    ennemy.setActive(false).setVelocityY(-120)
+    console.log("ennemy", ennemy);
+    ennemy.setVelocityX(0);
     setInterval(function () {ennemy.destroy()}, 1000); 
 
 }
 
 function findTheEnnemy(ennemy){
-
     let str=ennemy.texture.key;
     return str.split(/(?=[A-Z])/)[0];
-
 }
+
 function ennemyDies(ennemy, string){
 
-   console.log("poutrelle", string+'Dies')
    ennemy.anims.play(string+'Dies',true)
 }
 

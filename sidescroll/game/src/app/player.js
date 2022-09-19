@@ -100,6 +100,8 @@ function hitEnnemy (player, ennemy)
                                     })
     
         gameOver = true;        
+    }else{
+        this.physics.world.removeCollider(playerHitEnnemyCollider)
     }
    
 }

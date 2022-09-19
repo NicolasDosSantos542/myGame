@@ -16,6 +16,7 @@ let pikachus;
 let invisible_stops;
 let ennemies;
 let playerVelocity = 160;
-let aspicots
+let aspicots;
+let playerHitEnnemyCollider;
 
 let platform_array = []
