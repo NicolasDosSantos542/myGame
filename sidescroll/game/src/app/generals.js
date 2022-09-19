@@ -26,7 +26,7 @@
 
 
 function rangeAttack(shooters, game){
-    
+    destroyOffScreen(bullets)
     if(game.time.now < nextFireTime) {
         return;
     }
@@ -52,3 +52,10 @@ function rangeAttack(shooters, game){
 
 
 }
+function destroyOffScreen(object){
+    object.children.entries.forEach(element => {
+        if(element.x<0 || element.x >worldWidth)
+            element.destroy();
+        });
+        
+    }

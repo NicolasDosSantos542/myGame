@@ -110,6 +110,7 @@ function hitEnnemy (player, ennemy)
 // TODO: creer une fonction attack() qui prend en parametre un objet de type enum sous cette forme : enum={fireball: "fireball", melee : "melee"}
 // et faire le switchcase en fonction de l'objet plutôt que d'une string
 function fireball(){
+    destroyOffScreen(fireballs)
     console.log(fireballs.countActive(true))
     // if(fireballs.countActive(true)){
         var fireball=fireballs.create(player.x,player.y, 'fireball');
@@ -131,3 +132,4 @@ function fireball(){
     // }
 
 }
+

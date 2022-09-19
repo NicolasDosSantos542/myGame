@@ -21,8 +21,10 @@ let playerHitEnnemyCollider;
 let bullets;
 let nextFireTime;
 let fireRate=1000;
-let nextEnnemySpawn;
-let spawnRate = 1000;
+let nextRunnerSpawn;
+let nextFlyerSpawn;
+let spawnRate = 3000;
 let runnerEnnemy = "rattata"
+let flyingEnnemy = "roucoups"
 
 let platform_array = []

@@ -66,6 +66,18 @@ function animEnnemyMoves(){
         frames: game.anims.generateFrameNumbers('rattataDies', { start: 0, end: 5}),
         frameRate : 10,
         repeat : -1
+    })  
+    this.game.anims.create({
+        key : 'roucoupsMove',
+        frames: game.anims.generateFrameNumbers('roucoupsMove', { start: 0, end: 2}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'roucoupsDies',
+        frames: game.anims.generateFrameNumbers('roucoupsDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : -1
     })
 }
 

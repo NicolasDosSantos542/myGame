@@ -58,10 +58,13 @@ function create (){
 
 
 function update () {
-    playerHitEnnemyCollider = this.physics.add.collider(player, [pikachus, aspicots, ennemies, bullets], hitEnnemy, null, this );
+    destroyOffScreen(ennemies)
 
     // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-    sendRunnerEnnemy(this);
+   if(player.x <5000){
+       sendCrossingEnnemy(this);
+       sendFlyingEnnemy(this);
+   }
     playerCommands(this);
     rangeAttack(aspicots, this)
 

@@ -15,8 +15,12 @@ function addEnnemie(game, string){
             addPikachu(game);
             break
         case "aspicot":
-            addAspicot(game)
-        }
+            addAspicot(game);
+            break;
+            case "roucoups":
+                addRoucoups(game)
+            break;
+       }
 }
 
 function addPikachu(game){
@@ -50,28 +54,57 @@ function ennemyDies(ennemy, string){
    ennemy.anims.play(string+'Dies',true)
 }
 
-function sendRunnerEnnemy(game){
-
-    if(game.time.now < nextFireTime) {
+function sendCrossingEnnemy(game){
+    let ennemyName;
+    if(game.time.now < nextRunnerSpawn) {
         return;
     }
-    nextEnnemySpawn = game.time.now + spawnRate;
-   
-  
+    nextRunnerSpawn = game.time.now + spawnRate;
+
     positions= [130,320,450 ];
+    let y = positions[Math.floor(Math.random() * positions.length)];
     
-    const y = positions[Math.floor(Math.random() * positions.length)];
+    ennemy = ennemies.create(player.x+600,y, ennemyName+'Move')
+    ennemyName=runnerEnnemy
     
-    
-    console.log("brouette", runnerEnnemy)
-    ennemy = ennemies.create(player.x+600,y, runnerEnnemy+'Move')
+        
+
     ennemy.setVelocityX(-160)
-    ennemy.anims.play(runnerEnnemy+'Move',true)
+    ennemy.anims.play(ennemyName+'Move',true)
+    if(ennemy.x<=0){
+        ennemy.destroy();
+    }
+
      
-    
-
-
 }
+
+function sendFlyingEnnemy(game, ){
+    let ennemyName;
+    if(game.time.now < nextFlyerSpawn) {
+        return;
+    }
+    nextFlyerSpawn = game.time.now + spawnRate;
+
+    
+    ennemyName = flyingEnnemy
+
+        
+    console.log("brouette", ennemyName)
+    ennemy = ennemies.create(player.x+600,50, ennemyName+'Move')
+    ennemy.body.allowGravity = false
+        
+    ennemy.setVelocityX(-160)
+    console.log("truelle",ennemy)
+    ennemy.anims.play(ennemyName+'Move',true)
+
+    if(player.x === ennemy.x){
+        setVelocityY(200)
+    }
+    if(ennemy.x<=0){
+        ennemy.destroy();
+    }
+}
+     
 
 function reverseEnnemy(pikachu, invisible_stop){
     if(pikachu.flipX == true){
