@@ -58,7 +58,17 @@ function imageLoader(game){
     { frameWidth: 29, frameHeight: 40, endFrame: 2 })
 
 
+      //rattata
+      game.load.spritesheet('rattataMove',
+      'game/assets/sprites/rattata/rattata_move.png',
+      { frameWidth: 43 , frameHeight: 43, endFrame: 5 })
   
+      game.load.spritesheet('rattataDies',
+      'game/assets/sprites/rattata/rattata_die.png',
+      { frameWidth: 43, frameHeight: 40, endFrame: 2 })
+  
+  
+    
     //game/assets/sprites/onix
     game.load.spritesheet('onix_attack',
         'game/assets/sprites/onix/onix_attack.png',

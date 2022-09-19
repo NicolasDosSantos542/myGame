@@ -9,6 +9,7 @@ function receiveAttack(bomb){
 }
 
 function addEnnemie(game, string){
+    ennemies = game.physics.add.group();
     switch(string){
         case "pikachu" :
             addPikachu(game);
@@ -49,20 +50,25 @@ function ennemyDies(ennemy, string){
    ennemy.anims.play(string+'Dies',true)
 }
 
-function gogoPikachu(){
-    if (pikachus.countActive(true) <= 2)
-    {
-        positions= [130,320,450 ];
-        
-        const y = positions[Math.floor(Math.random() * positions.length)];
-        
-        
+function sendRunnerEnnemy(game){
 
-        pikachu = pikachus.create(800,y, 'pikachuMove')
-        pikachu.setVelocityX(-160)
-        pikachu.anims.play('pikachuMovesLeft',true)
-     
+    if(game.time.now < nextFireTime) {
+        return;
     }
+    nextEnnemySpawn = game.time.now + spawnRate;
+   
+  
+    positions= [130,320,450 ];
+    
+    const y = positions[Math.floor(Math.random() * positions.length)];
+    
+    
+    console.log("brouette", runnerEnnemy)
+    ennemy = ennemies.create(player.x+600,y, runnerEnnemy+'Move')
+    ennemy.setVelocityX(-160)
+    ennemy.anims.play(runnerEnnemy+'Move',true)
+     
+    
 
 
 }

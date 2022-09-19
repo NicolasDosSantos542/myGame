@@ -29,11 +29,12 @@ function addColliders(game){
 
     game.physics.add.collider(pikachus, [platforms]);
     game.physics.add.collider(aspicots, [platforms]);
+    game.physics.add.collider(ennemies, [platforms]);
 
     game.physics.add.collider(pikachus, fireballs, receiveAttack, null, game);
     game.physics.add.collider(aspicots, fireballs, receiveAttack, null, game);
+    game.physics.add.collider(ennemies, fireballs, receiveAttack, null, game);
 
-    playerHitEnnemyCollider = game.physics.add.collider(player, [pikachus, aspicots], hitEnnemy, null, game );
 
 }
 

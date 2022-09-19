@@ -86,7 +86,7 @@ function hitEnnemy (player, ennemy)
 {
     if(ennemy.active){
         this.physics.pause();
-
+        
         player.setTint(0xff0000);
     
         player.anims.play('turn');
@@ -101,7 +101,8 @@ function hitEnnemy (player, ennemy)
     
         gameOver = true;        
     }else{
-        this.physics.world.removeCollider(playerHitEnnemyCollider)
+        ennemy.body.checkCollision.none = true
+        console.log(ennemy)
     }
    
 }
