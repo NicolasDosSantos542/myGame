@@ -51,8 +51,7 @@ function create (){
     addEnnemie(this, 'pikachu')
     
     addEnnemie(this, 'aspicot')
-    
-    
+
     
     addColliders(this)  //doit être impérativement APRÈS les monstres, personnages et plateformes 
 }
@@ -62,6 +61,8 @@ function update () {
     // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
     // gogoPikachu();
     playerCommands(this);
+    rangeAttack(aspicots, this)
+
 
 
 }

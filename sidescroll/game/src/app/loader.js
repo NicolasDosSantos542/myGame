@@ -26,6 +26,7 @@ function imageLoader(game){
     game.load.image('rock_3', 'game/assets/images/attacks/rock_3.png') ;
     game.load.image('rock_1', 'game/assets/images/attacks/rock_1.png') ;
     game.load.image('rock_2', 'game/assets/images/attacks/rock_2.png') ;
+    game.load.image('pic', 'game/assets/images/attacks/pic.png') ;
     //game/assets/images/collectables
     game.load.image('pokeball', 'game/assets/images/collectables/pokeball.png') ;
     game.load.image('superball', 'game/assets/images/collectables/superball.png') ;
@@ -56,16 +57,8 @@ function imageLoader(game){
     'game/assets/sprites/aspicot/aspicot_die.png',
     { frameWidth: 29, frameHeight: 40, endFrame: 2 })
 
-    //spell pika
-    game.load.spritesheet('thunderbolt',
-        'game/assets/images/attacks/thunderbolt.png',
-        { frameWidth: 60, frameHeight: 220, endFrame: 0 })
-        
 
-    game.load.spritesheet('lightning',
-        'game/assets/images/attacks/lightning.png',
-        { frameWidth: 100, frameHeight: 60, endFrame: 0 })
-        
+  
     //game/assets/sprites/onix
     game.load.spritesheet('onix_attack',
         'game/assets/sprites/onix/onix_attack.png',

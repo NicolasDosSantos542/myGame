@@ -23,6 +23,7 @@ function addColliders(game){
     game.physics.add.collider(bombs, platforms);
 
     game.physics.add.collider(player, bombs, hitEnnemy, null, game);
+    game.physics.add.collider(player, bullets, hitEnnemy, null, game);
 
     game.physics.add.collider(fireballs, [platforms], fireballCollide, null, game);
 
@@ -39,6 +40,11 @@ function addColliders(game){
 function addProjectiles(game){
 
     fireballs = game.physics.add.group({
+        lifespan:0.1,
+        allowGravity: false
+    });
+
+    bullets = game.physics.add.group({
         lifespan:0.1,
         allowGravity: false
     });

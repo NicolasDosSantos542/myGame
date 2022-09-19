@@ -17,18 +17,12 @@ function createLevelOne(game){
     platform_array.push(platforms.create(4500, 400, 'ground'));
 
     invisible_stops = game.physics.add.staticGroup()
-    // console.log("typeof platforms",  platform_array)
 
     platform_array.forEach((element=>{
-        console.log("plateforme : ", element)
         levelY = element.y;
         startX = element.x - element.width/2;
         stopX = element.x + element.width/2;
-        console.log({
-            "levelY" : levelY,
-            "startX" : startX,
-            "stopX" : stopX 
-        })
+ 
         invisible_stops.create(startX, levelY-30).setVisible(false);
         
         invisible_stops.create(stopX, levelY-30).setVisible(false);

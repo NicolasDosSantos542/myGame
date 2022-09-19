@@ -34,7 +34,6 @@ function receiveAttack(ennemy, fireball){
     ennemyDies(ennemy, ennemyString)
     fireball.destroy()
     ennemy.setActive(false).setVelocityY(-120)
-    console.log("ennemy", ennemy);
     ennemy.setVelocityX(0);
     setInterval(function () {ennemy.destroy()}, 1000); 
 
@@ -88,6 +87,5 @@ function addAspicot(game){
         aspicot.setVelocityX(-160)
         
     })
-
     
 }

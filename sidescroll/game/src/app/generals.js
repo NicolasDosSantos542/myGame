@@ -23,3 +23,32 @@
 
 //     }
 // }
+
+
+function rangeAttack(shooters, game){
+    
+    if(game.time.now < nextFireTime) {
+        return;
+    }
+    nextFireTime = game.time.now + fireRate;
+    
+    shooters.children.entries.forEach(shooter => {
+        let distanceToPlayer = Math.abs(player.x-shooter.x)
+        if(distanceToPlayer <=500){
+
+            var bullet=bullets.create(shooter.x,shooter.y, 'pic');
+            if(shooter.flipX){
+                bullet.setVelocityY(0)
+                bullet.setVelocityX(400)
+                bullet.flipX=true;
+                
+            }else{
+                bullet.setVelocityY(0)
+                bullet.setVelocityX(-400)
+            }
+        }
+
+    });
+
+
+}

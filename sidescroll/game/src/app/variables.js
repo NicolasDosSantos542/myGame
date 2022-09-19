@@ -18,5 +18,8 @@ let ennemies;
 let playerVelocity = 160;
 let aspicots;
 let playerHitEnnemyCollider;
+let bullets;
+let nextFireTime;
+let fireRate=1000;
 
 let platform_array = []
