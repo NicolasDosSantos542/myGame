@@ -82,24 +82,26 @@ function collectBall (player, ball)
 
     }
 }
-function hitEnnemy (player, bomb)
+function hitEnnemy (player, ennemy)
 {
-    this.physics.pause();
+    if(ennemy.active){
+        this.physics.pause();
 
-    player.setTint(0xff0000);
-
-    player.anims.play('turn');
-
-    this.add.text(50, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
-
-    const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
-                                .setInteractive()
-                                .on("pointerdown",()=>{
-                                    restartGame()
-                                })
-
-    gameOver = true;
-
+        player.setTint(0xff0000);
+    
+        player.anims.play('turn');
+    
+        this.add.text(50, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
+    
+        const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
+                                    .setInteractive()
+                                    .on("pointerdown",()=>{
+                                        restartGame()
+                                    })
+    
+        gameOver = true;        
+    }
+   
 }
 
 // TODO: creer une fonction attack() qui prend en parametre un objet de type enum sous cette forme : enum={fireball: "fireball", melee : "melee"}
