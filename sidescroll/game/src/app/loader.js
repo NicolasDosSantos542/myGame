@@ -4,6 +4,7 @@ function imageLoader(game){
     game.load.image('sky', 'game/assets/images/sky_big.png');
     game.load.image('ground', 'game/assets/images/platform.png');
     game.load.image('cave_entry', 'game/assets/images/cave_entry.png');
+    game.load.image('stop', 'game/assets/images/stop.png');
     //load pickers
     game.load.image('star', 'game/assets/images/star.png');
     //load weapons

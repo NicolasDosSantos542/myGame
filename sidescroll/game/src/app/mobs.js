@@ -89,12 +89,10 @@ function sendFlyingEnnemy(game, ){
     ennemyName = flyingEnnemy
 
         
-    console.log("brouette", ennemyName)
     ennemy = ennemies.create(player.x+600,50, ennemyName+'Move')
     ennemy.body.allowGravity = false
         
     ennemy.setVelocityX(-160)
-    console.log("truelle",ennemy)
     ennemy.anims.play(ennemyName+'Move',true)
 
     if(player.x === ennemy.x){
@@ -130,5 +128,5 @@ function addAspicot(game){
 }
 
 function addBoss(game){
-    levelBoss = game.physics.add.sprite( 5800,200,'onixMove').setScale(5)
+    levelBoss = game.physics.add.sprite( 6200,200,'onixMove').setScale(5)
 }

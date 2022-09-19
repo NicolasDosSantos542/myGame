@@ -60,9 +60,22 @@ function create (){
 
 function update () {
     destroyOffScreen(ennemies)
+    if(player.x > 4700){
+        this.cameras.main.setBounds(4700, 0, worldWidth, 600);
+        platforms.create(4700, levelY-30,"stop").setVisible(false   );
 
-    // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-   if(player.x <5000){
+        ennemies.children.entries.forEach(element => {
+                element.destroy();
+            });
+        aspicots.children.entries.forEach(element => {
+                    element.destroy();
+                });
+
+
+    }
+
+    this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
+   if(player.x <4700){
        sendCrossingEnnemy(this);
        sendFlyingEnnemy(this);
    }

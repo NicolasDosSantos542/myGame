@@ -1,7 +1,7 @@
 
 function createLevelOne(game){
     sky = game.add.image(4000, 300, 'sky');
-    caveEntry = game.add.image(5850, 300,'cave_entry')
+    caveEntry = game.add.image(6274, 300,'cave_entry')
 
     platforms = game.physics.add.staticGroup();
     platforms.create(400, 568, 'ground').setScale(40, 2).refreshBody(); // le sol
