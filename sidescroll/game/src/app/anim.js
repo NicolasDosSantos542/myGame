@@ -49,6 +49,11 @@ function animEnnemyMoves(){
         frameRate : 10,
         repeat : -1
     })
-
+    this.game.anims.create({
+        key : 'aspicotDies',
+        frames: game.anims.generateFrameNumbers('aspicotDies', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
 }
 

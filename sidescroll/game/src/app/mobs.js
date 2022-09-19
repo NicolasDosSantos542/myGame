@@ -11,7 +11,6 @@ function receiveAttack(bomb){
 function addEnnemie(game, string){
     switch(string){
         case "pikachu" :
-            // console.log(game)
             addPikachu(game);
             break
         case "aspicot":
@@ -29,20 +28,31 @@ function addPikachu(game){
 
 }
 
-function receiveAttack(pikachu, fireball){
+function receiveAttack(ennemy, fireball){
+
     fireball.destroy()
-
-    pikachu.setVelocityX(0);
-    pikachu.setActive(false).setVelocityY(-120)
-    pikachu.anims.play('pikachuDies',true)
-    setInterval(function () {pikachu.destroy()}, 1000); 
-
-    
+    ennemyString = findTheEnnemy(ennemy)
+    ennemy.setActive(false).setVelocityY(-120)
+    console.log("ennemy", ennemy.texture.key);
+    ennemy.setVelocityX(0);
+    ennemyDies(ennemy, ennemyString)
+    setInterval(function () {ennemy.destroy()}, 1000); 
 
 }
 
+function findTheEnnemy(ennemy){
+
+    let str=ennemy.texture.key;
+    return str.split(/(?=[A-Z])/)[0];
+
+}
+function ennemyDies(ennemy, string){
+
+   console.log("poutrelle", string+'Dies')
+   ennemy.anims.play(string+'Dies',true)
+}
+
 function gogoPikachu(){
-    console.log("gogo pikachu")
     if (pikachus.countActive(true) <= 2)
     {
         positions= [130,320,450 ];
@@ -61,8 +71,6 @@ function gogoPikachu(){
 }
 
 function reverseEnnemy(pikachu, invisible_stop){
-    console.log(pikachu.flipX);
-    console.log(pikachu.body.velocity.x);
     if(pikachu.flipX == true){
         pikachu.flipX = false;
         pikachu.setVelocityX (-160);
@@ -79,7 +87,6 @@ function addAspicot(game){
         
         aspicot = aspicots.create(platform.x,platform.y-30, 'aspicotMove')
         aspicot.anims.play('aspicotMove',true)
-        console.log('youhou')
         aspicot.setVelocityX(-160)
         
     })

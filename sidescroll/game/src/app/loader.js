@@ -52,6 +52,10 @@ function imageLoader(game){
     'game/assets/sprites/aspicot/aspicot_move.png',
     { frameWidth: 56.5, frameHeight: 28, endFrame: 2 })
 
+    game.load.spritesheet('aspicotDies',
+    'game/assets/sprites/aspicot/aspicot_die.png',
+    { frameWidth: 41, frameHeight: 41, endFrame: 2 })
+
     //spell pika
     game.load.spritesheet('thunderbolt',
         'game/assets/images/attacks/thunderbolt.png',
