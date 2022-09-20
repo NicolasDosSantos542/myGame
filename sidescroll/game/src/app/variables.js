@@ -27,6 +27,16 @@ let nextFlyerSpawn;
 let spawnRate = 3000;
 let runnerEnnemy = "rattata"
 let flyingEnnemy = "roucoups";
+
 let levelBoss;
+let bossName = "onix";
+let bossLife;
+let bossLifeMax;
+let bossRate = 2000;
+let bossStatus;
+let bossLastStatus;
+let bossNextAttack;
+let rocks; 
+
 
 let platform_array = []

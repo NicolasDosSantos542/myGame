@@ -8,7 +8,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            // debug:true,
+            debug:true,
             width: worldWidth,
             height: 600,
         }
@@ -59,39 +59,25 @@ function create (){
 
 
 function update () {
-    destroyOffScreen(ennemies)
-    if(player.x > 4700){
-        this.cameras.main.setBounds(4700, 0, worldWidth, 600);
-        platforms.create(4700, levelY-30,"stop").setVisible(false   );
-
-        ennemies.children.entries.forEach(element => {
-                element.destroy();
-        });
-        aspicots.children.entries.forEach(element => {
-                    element.destroy();
-        });
-        bullets.children.entries.forEach(element => {
-            element.destroy();
-        });
-                
-     
-
-
-    }
 
     this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-   if(player.x <4700){
+
+    destroyOffScreen(ennemies)
+
+    
+    if(player.x <4700){
        sendCrossingEnnemy(this);
        sendFlyingEnnemy(this);
-   }
+    }
+    if(player.x > 4700){
+    prepareForBoss(this);
+    bossPattern(this)
+    }
     playerCommands(this);
     rangeAttack(aspicots, this)
 
 
 
 }
-
-
-
 
 

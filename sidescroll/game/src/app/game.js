@@ -2,7 +2,7 @@
 function defineCommands(game){
 
     cursors = game.input.keyboard.createCursorKeys();
-    keyAttack = game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
+    keyAttack = game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     keyJ = game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);
     keyK = game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.K);
     keyL = game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
@@ -16,7 +16,6 @@ function addColliders(game){
 
     game.physics.add.collider(invisible_stops, platforms);
 
-    // game.physics.add.collider(pikachu, invisible_stops, reverseEnnemy, null, game);
     game.physics.add.collider(aspicots, invisible_stops, reverseEnnemy, null, game);
 
     game.physics.add.collider(balls, platforms);
@@ -52,6 +51,9 @@ function addProjectiles(game){
         lifespan:0.1,
         allowGravity: false
     });
+
+    rocks =  game.physics.add.group({});
+
 
 }
 

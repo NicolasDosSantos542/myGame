@@ -128,7 +128,64 @@ function addAspicot(game){
 }
 
 function addBoss(game){
-    levelBoss = game.physics.add.sprite( 6200,200,'onixMove').setScale(5)
+    levelBoss = game.physics.add.sprite( 0, -200, bossName+'Move').setScale(5)
     levelBoss.anims.play('onixMove', true)
+    console.log("levelBoss", levelBoss)
+
+}
+
+function zoneAttack(game){
+    console.log("attaque de zone")
+    let rocks_list = ["rock_1", "rock_2", "rock_3", "rock_4"];
+    let xMax = 5850;
+    let yMax = 100;
+
+    for (let i = 0; i < 8; i++) {
+        var ranNum = Math.ceil(Math.random() * 50   ) * (Math.round(Math.random()) ? 1 : -1)
+        let x= xMax + ranNum
+
+        let y = Math.floor(Math.random() * yMax)
+        let randomRock = rocks_list[Math.floor(Math.random() * rocks_list.length)];
+
+        rocks.create(x-(150*i),y, randomRock)
+        console.log("rock_"+(i+1))
+        console.log ("rochers = ",randomRock )
+    }
+}
+
+function meleeAttack(){
+    console.log("attaque de mélée")
+    levelBoss.anims.play(bossName+'Attacks',true)
+
+}
+
+function bossPattern(game){
+    destroyOffScreen(rocks)
+
+    console.log("boss status = " , bossStatus)
+    if(game.time.now < bossNextAttack) {
+        return;
+    }
+
+    bossNextAttack = game.time.now + bossRate;
+
+    if(bossStatus == 1){
+        zoneAttack(game)
+        bossStatus = 0;
+        bossLastStatus = 1
+    }else if(bossStatus == -1){
+        meleeAttack()
+        bossStatus = 0
+        bossLastStatus = -1
+    }else if(bossStatus==0 && (bossLastStatus == 1 || bossLastStatus == -1)) {
+        console.log("attente")
+        bossStatus = bossLastStatus * -1;
+        bossLastStatus = 0;
+        return
+    }else{
+        bossStatus =1;
+
+    }
+
 
 }

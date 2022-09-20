@@ -54,7 +54,7 @@ function rangeAttack(shooters, game){
 }
 function destroyOffScreen(object){
     object.children.entries.forEach(element => {
-        if(element.x<0 || element.x >worldWidth)
+        if(element.x<0 || element.x >worldWidth ||element.y>600 || element.y < 0)
             element.destroy();
         });
         

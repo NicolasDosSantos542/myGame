@@ -81,12 +81,14 @@ function imageLoader(game){
     //game/assets/sprites/onix
     game.load.spritesheet('onixAttack',
         'game/assets/sprites/onix/onix_attack.png',
-        { frameWidth: 50, frameHeight: 115, endFrame:5}) ;
+        { frameWidth: 90, frameHeight: 115, endFrame:5}) ;
     game.load.spritesheet('onixMove',
         'game/assets/sprites/onix/onix.png',
         { frameWidth: 88, frameHeight: 95, endFrame:4}) ;
     game.load.spritesheet('onixDies',
         'game/assets/sprites/onix/onix_hit.png',
         { frameWidth: 91, frameHeight: 95, endFrame:1}) ;
+
+    game.load.atlas("onix", "game/assets/sprites/onix/onix_spritesheet.png", "game/assets/sprites/onix/onix_spritesheet.json");
 
 }

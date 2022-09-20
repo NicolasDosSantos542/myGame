@@ -6,7 +6,7 @@ function createLevelOne(game){
 
     player_invisible_stop = game.physics.add.staticGroup(); 
     player_invisible_stop.create(5935, 516, 'stop').setVisible(false)
-    
+
     platforms = game.physics.add.staticGroup();
     platforms.create(400, 568, 'ground').setScale(40, 2).refreshBody(); // le sol
     platform_array.push(platforms.create(600, 400, 'ground'));
@@ -75,3 +75,23 @@ function addCollectable(game, string){
         setXY: { x: 12, y: 0, stepX: 100}
     });
 }
+
+
+function prepareForBoss(game){
+
+    game.cameras.main.setBounds(4700, 0, worldWidth, 600);
+    platforms.create(4700, levelY-30,"stop").setVisible(false   );
+
+    ennemies.children.entries.forEach(element => {
+            element.destroy();
+    });
+    aspicots.children.entries.forEach(element => {
+                element.destroy();
+    });
+    bullets.children.entries.forEach(element => {
+        element.destroy();
+    });
+            
+ 
+}
+
