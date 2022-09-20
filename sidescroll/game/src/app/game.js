@@ -12,26 +12,43 @@ function defineCommands(game){
 function addColliders(game){
 
     game.physics.add.collider(player, platforms);
+    game.physics.add.collider(player, player_invisible_stop);
 
-    game.physics.add.collider(stars, platforms);
+    game.physics.add.collider(invisible_stops, platforms);
+
+    // game.physics.add.collider(pikachu, invisible_stops, reverseEnnemy, null, game);
+    game.physics.add.collider(aspicots, invisible_stops, reverseEnnemy, null, game);
+
+    game.physics.add.collider(balls, platforms);
 
     game.physics.add.collider(bombs, platforms);
 
     game.physics.add.collider(player, bombs, hitEnnemy, null, game);
+    game.physics.add.collider(player, bullets, hitEnnemy, null, game);
 
     game.physics.add.collider(fireballs, [platforms], fireballCollide, null, game);
 
     game.physics.add.collider(pikachus, [platforms]);
+    game.physics.add.collider(aspicots, [platforms]);
+    game.physics.add.collider(ennemies, [platforms]);
+    game.physics.add.collider(levelBoss, [platforms]);
 
     game.physics.add.collider(pikachus, fireballs, receiveAttack, null, game);
+    game.physics.add.collider(aspicots, fireballs, receiveAttack, null, game);
+    game.physics.add.collider(ennemies, fireballs, receiveAttack, null, game);
 
-    game.physics.add.collider(player, pikachus, hitEnnemy, null, game );
+    // playerHitEnnemyCollider = game.physics.add.collider(player, [pikachus, aspicots, ennemies, bullets], hitEnnemy, null, game );
 
 }
 
 function addProjectiles(game){
 
     fireballs = game.physics.add.group({
+        lifespan:0.1,
+        allowGravity: false
+    });
+
+    bullets = game.physics.add.group({
         lifespan:0.1,
         allowGravity: false
     });

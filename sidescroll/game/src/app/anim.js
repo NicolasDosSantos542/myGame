@@ -27,7 +27,7 @@ function animPlayerMoves(game){
     });
 }
 
-function animPikachuMoves(){
+function animEnnemyMoves(){
     this.game.anims.create({
         key: 'pikachuMovesLeft',
         frames: game.anims.generateFrameNumbers('pikachuMove', { start: 0, end: 4}),
@@ -43,4 +43,54 @@ function animPikachuMoves(){
 
     })
 
+    this.game.anims.create({
+        key : 'aspicotMove',
+        frames: game.anims.generateFrameNumbers('aspicotMove', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'aspicotDies',
+        frames: game.anims.generateFrameNumbers('aspicotDies', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'rattataMove',
+        frames: game.anims.generateFrameNumbers('rattataMove', { start: 0, end: 9}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'rattataDies',
+        frames: game.anims.generateFrameNumbers('rattataDies', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })  
+    this.game.anims.create({
+        key : 'roucoupsMove',
+        frames: game.anims.generateFrameNumbers('roucoupsMove', { start: 0, end: 2}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'roucoupsDies',
+        frames: game.anims.generateFrameNumbers('roucoupsDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : -1
+    }) 
+    this.game.anims.create({
+        key : 'onixMove',
+        frames: game.anims.generateFrameNumbers('onixMove', { start: 0, end: 3}),
+        frameRate : 10,
+        repeat : -1
+    })
+
+    this.game.anims.create({
+        key : 'onixDies',
+        frames: game.anims.generateFrameNumbers('onixDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : -1
+    })
 }
+

@@ -8,7 +8,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            debug:true,
+            // debug:true,
             width: worldWidth,
             height: 600,
         }
@@ -30,7 +30,6 @@ function preload ()
 
 
 function create (){
-    console.log("game",game)
     this.cameras.main.setBounds(0, 0, worldWidth, 600);
     
     createLevelOne(this);
@@ -39,11 +38,11 @@ function create (){
     this.cameras.main.startFollow(player);
 
     animPlayerMoves(this)
-    animPikachuMoves(this)
+    animEnnemyMoves(this)
 
     defineCommands(this)
    
-    addStars(this)
+    addBalls(this)
 
     addBombs(this)
 
@@ -51,18 +50,43 @@ function create (){
     
     addEnnemie(this, 'pikachu')
     
-    
-    
+    addEnnemie(this, 'aspicot')
+
+    addBoss(this)
     
     addColliders(this)  //doit être impérativement APRÈS les monstres, personnages et plateformes 
 }
 
 
 function update () {
+    destroyOffScreen(ennemies)
+    if(player.x > 4700){
+        this.cameras.main.setBounds(4700, 0, worldWidth, 600);
+        platforms.create(4700, levelY-30,"stop").setVisible(false   );
+
+        ennemies.children.entries.forEach(element => {
+                element.destroy();
+        });
+        aspicots.children.entries.forEach(element => {
+                    element.destroy();
+        });
+        bullets.children.entries.forEach(element => {
+            element.destroy();
+        });
+                
+     
+
+
+    }
+
     this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-    // console.log({ "x" : game.input.mousePointer.x, "y" : game.input.mousePointer.y})
-    // gogoPikachu();
+   if(player.x <4700){
+       sendCrossingEnnemy(this);
+       sendFlyingEnnemy(this);
+   }
     playerCommands(this);
+    rangeAttack(aspicots, this)
+
 
 
 }
