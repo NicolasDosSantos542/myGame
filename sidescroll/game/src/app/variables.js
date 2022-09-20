@@ -1,6 +1,7 @@
 //instancie toutes les variables séparées par des commentaires indicatifs
 
 var platforms;
+let player_invisible_stop;
 var player;
 var fireballs;
 var cursors;
@@ -26,6 +27,6 @@ let nextFlyerSpawn;
 let spawnRate = 3000;
 let runnerEnnemy = "rattata"
 let flyingEnnemy = "roucoups";
-let levelBoss
+let levelBoss;
 
 let platform_array = []

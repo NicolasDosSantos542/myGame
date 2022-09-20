@@ -8,7 +8,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            debug:true,
+            // debug:true,
             width: worldWidth,
             height: 600,
         }
@@ -66,10 +66,15 @@ function update () {
 
         ennemies.children.entries.forEach(element => {
                 element.destroy();
-            });
+        });
         aspicots.children.entries.forEach(element => {
                     element.destroy();
-                });
+        });
+        bullets.children.entries.forEach(element => {
+            element.destroy();
+        });
+                
+     
 
 
     }

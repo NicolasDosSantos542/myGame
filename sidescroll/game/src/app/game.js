@@ -12,6 +12,7 @@ function defineCommands(game){
 function addColliders(game){
 
     game.physics.add.collider(player, platforms);
+    game.physics.add.collider(player, player_invisible_stop);
 
     game.physics.add.collider(invisible_stops, platforms);
 

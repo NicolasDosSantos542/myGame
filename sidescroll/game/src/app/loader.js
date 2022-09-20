@@ -5,6 +5,7 @@ function imageLoader(game){
     game.load.image('ground', 'game/assets/images/platform.png');
     game.load.image('cave_entry', 'game/assets/images/cave_entry.png');
     game.load.image('stop', 'game/assets/images/stop.png');
+    game.load.image('bigRock', 'game/assets/images/big_rock.png');
     //load pickers
     game.load.image('star', 'game/assets/images/star.png');
     //load weapons
@@ -80,12 +81,12 @@ function imageLoader(game){
     //game/assets/sprites/onix
     game.load.spritesheet('onixAttack',
         'game/assets/sprites/onix/onix_attack.png',
-        { frameWidth: 50, frameHeight: 115, startFrame:0, endFrame:2}) ;
+        { frameWidth: 50, frameHeight: 115, endFrame:5}) ;
     game.load.spritesheet('onixMove',
         'game/assets/sprites/onix/onix.png',
-        { frameWidth: 90, frameHeight: 95, endFrame:4}) ;
-    game.load.spritesheet('onix_hit',
-        'game/assets/sprites/onix/onixDies.png',
-        { frameWidth: 91, frameHeight: 95, startFrame:0, endFrame:2}) ;
+        { frameWidth: 88, frameHeight: 95, endFrame:4}) ;
+    game.load.spritesheet('onixDies',
+        'game/assets/sprites/onix/onix_hit.png',
+        { frameWidth: 91, frameHeight: 95, endFrame:1}) ;
 
 }
