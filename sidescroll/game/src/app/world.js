@@ -78,6 +78,7 @@ function addCollectable(game, string){
 
 
 function prepareForBoss(game){
+    frontOfBoss = true;
 
     game.cameras.main.setBounds(4700, 0, worldWidth, 600);
     platforms.create(4700, levelY-30,"stop").setVisible(false   );

@@ -1,9 +1,12 @@
 //instancie toutes les variables séparées par des commentaires indicatifs
 
-var platforms;
-let player_invisible_stop;
 var player;
 var fireballs;
+var playerPower = 1;
+var frontOfBoss = false
+
+var platforms;
+let player_invisible_stop;
 var cursors;
 var balls;
 var score = 0;
@@ -30,13 +33,15 @@ let flyingEnnemy = "roucoups";
 
 let levelBoss;
 let bossName = "onix";
-let bossLife;
+let bossHitPoints = 0;
 let bossLifeMax;
-let bossRate = 2000;
+let bossRate = 5000;
 let bossStatus;
 let bossLastStatus;
 let bossNextAttack;
 let rocks; 
+let lifeBar;
+let lifeBarFull;
 
 
 let platform_array = []

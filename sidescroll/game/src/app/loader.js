@@ -20,6 +20,12 @@ function imageLoader(game){
         'game/assets/sprites/salameche/salameche_fire_hit.png',
         { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
     );
+
+    //life bar
+
+    game.load.image('lifeBar', 'game/assets/images/lifeBar.png')
+    game.load.image('lifeBarFull', 'game/assets/images/lifeBarFull.png')
+    
     //game/assets/images/attacks
     game.load.image('lightning', 'game/assets/images/attacks/lightning.png') ;
     game.load.image('rock_5', 'game/assets/images/attacks/rock_5.png') ;

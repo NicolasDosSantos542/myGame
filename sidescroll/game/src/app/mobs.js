@@ -128,14 +128,17 @@ function addAspicot(game){
 }
 
 function addBoss(game){
-    levelBoss = game.physics.add.sprite( 0, -200, bossName+'Move').setScale(5)
+    levelBoss = game.physics.add.sprite( 6250, 0, bossName+'Move').setScale(5)
+    bossLifeMax = 100;
     levelBoss.anims.play('onixMove', true)
     console.log("levelBoss", levelBoss)
+    lifeBar = game.add.image(levelBoss.x -500, 50, 'lifeBar')
+    lifeBarFull = game.add.image(lifeBar.x, lifeBar.y, 'lifeBarFull')
+    console.log(lifeBarFull)
 
 }
 
 function zoneAttack(game){
-    console.log("attaque de zone")
     let rocks_list = ["rock_1", "rock_2", "rock_3", "rock_4"];
     let xMax = 5850;
     let yMax = 100;
@@ -148,21 +151,47 @@ function zoneAttack(game){
         let randomRock = rocks_list[Math.floor(Math.random() * rocks_list.length)];
 
         rocks.create(x-(150*i),y, randomRock)
-        console.log("rock_"+(i+1))
-        console.log ("rochers = ",randomRock )
     }
 }
 
-function meleeAttack(){
-    console.log("attaque de mélée")
-    levelBoss.anims.play(bossName+'Attacks',true)
+function lowAttack(){
+    let skater = levelBoss.anims.play(bossName+'Attacks',true);
+    skater.on('animationcomplete', ()=>{
+        levelBoss.setVelocityY(-200)
+        rockAttack = rocks.create(5995,480, "rock_1").setVelocityX(-500)
+        rockAttack.body.allowGravity = false
+        levelBoss.anims.play('onixMove', true)
+    })
+
+
+
+}
+function bossReceiveAttack(levelBoss, fireball) {
+    fireball.destroy()
+    bossHitPoints += playerPower;
+    levelBoss.setVelocityX(0);
+    hitpointsBar =1-( bossHitPoints / bossLifeMax) 
+    console.log("hit poins bar = ", hitpointsBar)
+    lifeBarFull.setScale(hitpointsBar,1)
+    console.log(lifeBarFull)
+
+    if(bossHitPoints == bossLifeMax){
+        levelBoss.anims.play('onixDie', true);
+        this.physics.pause();
+        player.anims.stop()
+    }
+
+
 
 }
 
 function bossPattern(game){
     destroyOffScreen(rocks)
+    if(bossHitPoints == bossLifeMax){
+        levelBoss.anims.stop()
+        return;
+    }
 
-    console.log("boss status = " , bossStatus)
     if(game.time.now < bossNextAttack) {
         return;
     }
@@ -174,11 +203,10 @@ function bossPattern(game){
         bossStatus = 0;
         bossLastStatus = 1
     }else if(bossStatus == -1){
-        meleeAttack()
+        lowAttack()
         bossStatus = 0
         bossLastStatus = -1
     }else if(bossStatus==0 && (bossLastStatus == 1 || bossLastStatus == -1)) {
-        console.log("attente")
         bossStatus = bossLastStatus * -1;
         bossLastStatus = 0;
         return

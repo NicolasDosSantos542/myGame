@@ -79,37 +79,25 @@ function animEnnemyMoves(){
         frameRate : 10,
         repeat : -1
     }) 
-    // this.game.anims.create({
-    //     key : 'onixMove',
-    //     frames: game.anims.generateFrameNumbers('onixMove', { start: 0, end: 3}),
-    //     frameRate : 10,
-    //     repeat : -1
-    // })
-
-    // this.game.anims.create({
-    //     key : 'onixMove',
-    //     frames: game.anims.generateFrameNumbers('onixMove', { start: 0, end: 3}),
-    //     frameRate : 10,
-    //     repeat : -1
-    // })
-
-    // this.game.anims.create({
-    //     key : 'onixAttacks',
-    //     frames: game.anims.generateFrameNumbers('onixAttack', { start: 0, end: 5}),
-    //     frameRate : 10,
-    //     repeat : 1
-    // })
     this.game.anims.create({
-        key: 'onixMove',
-        frames: [
-            { key: 'onix',frame:"onix_2" },
-            { key: 'onix',frame:"onix_3" },
-            { key: 'onix',frame:"onix_4" },
-            { key: 'onix',frame:"onix_5" },
-            { key: 'onix',frame:"onix_6" },
-        ],
-        frameRate: 8,
-        repeat: -1
-    });
-}
+        key : 'onixMove',
+        frames: game.anims.generateFrameNumbers('onixMove', { start: 0, end: 3}),
+        frameRate : 10,
+        repeat : -1
+    })
 
+    this.game.anims.create({
+        key : 'onixDie',
+        frames: game.anims.generateFrameNumbers('onixDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : 0
+    })
+
+    this.game.anims.create({
+        key : 'onixAttacks',
+        frames: game.anims.generateFrameNumbers('onixAttack', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : 1
+    })
+
+}

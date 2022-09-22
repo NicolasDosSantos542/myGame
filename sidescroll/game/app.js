@@ -60,12 +60,13 @@ function create (){
 
 function update () {
 
-    this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
+    // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
 
     destroyOffScreen(ennemies)
 
     
-    if(player.x <4700){
+    if(player.x <4700 && !frontOfBoss){
+
        sendCrossingEnnemy(this);
        sendFlyingEnnemy(this);
     }

@@ -3,7 +3,7 @@
 
 function createPlayer(game){
 
-    player = game.physics.add.sprite(100, 450, 'salamecheMove');
+    player = game.physics.add.sprite(5555, 450, 'salamecheMove');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
     player.flipX = -1
