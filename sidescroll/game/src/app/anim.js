@@ -1,5 +1,4 @@
 //toutes les animations
-console.log("aaaaaaaanniiiiiiims")
 function animPlayerMoves(game){
 
     game.anims.create({
@@ -28,13 +27,77 @@ function animPlayerMoves(game){
     });
 }
 
-game.load.image('fireball', 'game/assets/fireball.png')
-game.load.spritesheet('salamecheMove', 
-    'game/assets/salameche/walk.png',
-    { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame:2}
-);
-game.load.spritesheet('salamecheHit', 
-    'game/assets/salameche/fire_hit.png',
-    { frameWidth: 50, frameHeight: 50, startFrame:0, endFrame : 10}
-);
+function animEnnemyMoves(){
+    this.game.anims.create({
+        key: 'pikachuMovesLeft',
+        frames: game.anims.generateFrameNumbers('pikachuMove', { start: 0, end: 4}),
+        frameRate: 10,
+        repeat: -1
+    });
 
+    this.game.anims.create({
+        key : 'pikachuDies',
+        frames: game.anims.generateFrameNumbers('pikachuDying', { start: 2, end: 3}),
+        frameRate : 10,
+        repeat : -1
+
+    })
+
+    this.game.anims.create({
+        key : 'aspicotMove',
+        frames: game.anims.generateFrameNumbers('aspicotMove', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'aspicotDies',
+        frames: game.anims.generateFrameNumbers('aspicotDies', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'rattataMove',
+        frames: game.anims.generateFrameNumbers('rattataMove', { start: 0, end: 9}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'rattataDies',
+        frames: game.anims.generateFrameNumbers('rattataDies', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : -1
+    })  
+    this.game.anims.create({
+        key : 'roucoupsMove',
+        frames: game.anims.generateFrameNumbers('roucoupsMove', { start: 0, end: 2}),
+        frameRate : 10,
+        repeat : -1
+    })
+    this.game.anims.create({
+        key : 'roucoupsDies',
+        frames: game.anims.generateFrameNumbers('roucoupsDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : -1
+    }) 
+    this.game.anims.create({
+        key : 'onixMove',
+        frames: game.anims.generateFrameNumbers('onixMove', { start: 0, end: 3}),
+        frameRate : 10,
+        repeat : -1
+    })
+
+    this.game.anims.create({
+        key : 'onixDie',
+        frames: game.anims.generateFrameNumbers('onixDies', { start: 0, end: 1}),
+        frameRate : 10,
+        repeat : 0
+    })
+
+    this.game.anims.create({
+        key : 'onixAttacks',
+        frames: game.anims.generateFrameNumbers('onixAttack', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : 1
+    })
+
+}

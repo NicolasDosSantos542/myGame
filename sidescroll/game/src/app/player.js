@@ -1,10 +1,9 @@
 //contient toutes les fonctions spécifique au joueur et son personnage:
 // attack, receiveAttack, createPlayer (name) etc
-console.log("playeeeer");
 
 function createPlayer(game){
 
-    player = game.physics.add.sprite(100, 450, 'salamecheMove');
+    player = game.physics.add.sprite(10, 450, 'salamecheMove');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
     player.flipX = -1
@@ -15,14 +14,14 @@ function playerCommands(game){
     {
         player.flipX=false;
         
-        player.setVelocityX(-160);
+        player.setVelocityX(-playerVelocity);
     
         player.anims.play('left', true);
     }
     else if (cursors.right.isDown)
     {
         player.flipX=true;
-        player.setVelocityX(160);
+        player.setVelocityX(playerVelocity);
     
         player.anims.play('right', true);
     }
@@ -40,35 +39,33 @@ function playerCommands(game){
 
     if(Phaser.Input.Keyboard.JustDown(keyAttack)) {
 
-        console.log('I key pressed')
         player.setVelocityX(0);
 
         player.anims.play('fireHit', true)
         fireball();
 
      } else if(keyJ.isDown) {
-        console.log('J key pressed')
 
      } else if(keyK.isDown) {
-        console.log('K key pressed')        
         player.setVelocityX(-160);
 
         player.anims.play('left', true);
      } else if(keyL.isDown) {
-        console.log('L key pressed')
      }
 }
 
-function collectStar (player, star)
+function collectBall (player, ball)
 {
-    star.disableBody(true, true);
+    ball.disableBody(true, true);
 
     score += 10;
-    scoreText.setText('Score: ' + score);
+    playerPower += 0.5
+    scoreText.setText('score: ' + score);
+    playerPowerText.setText('power : ' + playerPower)
 
-    if (stars.countActive(true) === 0)
+    if (balls.countActive(true) === 0)
     {
-        stars.children.iterate(function (child) {
+        balls.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
 
@@ -83,34 +80,38 @@ function collectStar (player, star)
 
     }
 }
-function hitBomb (player, bomb)
+function hitEnnemy (player, ennemy)
 {
-    this.physics.pause();
+    if(ennemy.active){
+        this.physics.pause();
+        
+        player.setTint(0xff0000);
+    
+        player.anims.play('turn');
 
-    player.setTint(0xff0000);
-
-    player.anims.play('turn');
-
-    this.add.text(50, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
-
-    const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
-                                .setInteractive()
-                                .on("pointerdown",()=>{
-                                    console.log("toto");
-                                    restartGame()
-                                })
-
-    gameOver = true;
-
+        gameOverX = this.cameras.main.midPoint.x - 350
+    
+        this.add.text(gameOverX, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
+    
+        const replayButton =this.add.text(gameOverX+100, 375, 'F5 to restart', {fontSize: '32px', fill: "#000"})
+                                    .setInteractive()
+                                    .on("pointerdown",()=>{
+                                        restartGame(this)
+                                    })
+    
+        gameOver = true;        
+    }else{
+        ennemy.body.checkCollision.none = true
+    }
+   
 }
 
 // TODO: creer une fonction attack() qui prend en parametre un objet de type enum sous cette forme : enum={fireball: "fireball", melee : "melee"}
 // et faire le switchcase en fonction de l'objet plutôt que d'une string
 function fireball(){
-    console.log(fireballs.countActive(true))
+    destroyOffScreen(fireballs)
     // if(fireballs.countActive(true)){
         var fireball=fireballs.create(player.x,player.y, 'fireball');
-        console.log("touotou", fireball.y)
 
 
         if(player.flipX){
@@ -125,9 +126,8 @@ function fireball(){
         // fireball.setBounce(1);
         // fireball.setCollideWorldBounds(true);
         
-        console.log("fireball : ", fireball)
-        console.log("fireball tirée", player);
 
     // }
 
 }
+
