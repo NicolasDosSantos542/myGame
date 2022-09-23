@@ -87,10 +87,17 @@ function animEnnemyMoves(){
     })
 
     this.game.anims.create({
-        key : 'onixDies',
+        key : 'onixDie',
         frames: game.anims.generateFrameNumbers('onixDies', { start: 0, end: 1}),
         frameRate : 10,
-        repeat : -1
+        repeat : 0
     })
-}
 
+    this.game.anims.create({
+        key : 'onixAttacks',
+        frames: game.anims.generateFrameNumbers('onixAttack', { start: 0, end: 5}),
+        frameRate : 10,
+        repeat : 1
+    })
+
+}

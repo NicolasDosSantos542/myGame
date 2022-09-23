@@ -1,9 +1,12 @@
 //instancie toutes les variables séparées par des commentaires indicatifs
 
-var platforms;
-let player_invisible_stop;
 var player;
 var fireballs;
+var playerPower = 1;
+var frontOfBoss = false
+
+var platforms;
+let player_invisible_stop;
 var cursors;
 var balls;
 var score = 0;
@@ -16,7 +19,7 @@ let keyL;
 let pikachus;
 let invisible_stops;
 let ennemies;
-let playerVelocity = 1600;
+let playerVelocity = 160;
 let aspicots;
 let playerHitEnnemyCollider;
 let bullets;
@@ -27,6 +30,19 @@ let nextFlyerSpawn;
 let spawnRate = 3000;
 let runnerEnnemy = "rattata"
 let flyingEnnemy = "roucoups";
+
+let stop_before_boss; 
 let levelBoss;
+let bossName = "onix";
+let bossHitPoints = 0;
+let bossLifeMax;
+let bossRate = 3000;
+let bossStatus;
+let bossLastStatus;
+let bossNextAttack;
+let rocks; 
+let lifeBar;
+let lifeBarFull;
+
 
 let platform_array = []

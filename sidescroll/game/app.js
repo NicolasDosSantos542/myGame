@@ -1,4 +1,4 @@
-const worldWidth = 6000;
+const worldWidth = 6374;
 
 var config = {
     type: Phaser.AUTO,
@@ -8,7 +8,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            // debug:true,
+            debug:true,
             width: worldWidth,
             height: 600,
         }
@@ -30,6 +30,7 @@ function preload ()
 
 
 function create (){
+    let toto = new Scene();
     this.cameras.main.setBounds(0, 0, worldWidth, 600);
     
     createLevelOne(this);
@@ -59,39 +60,35 @@ function create (){
 
 
 function update () {
-    destroyOffScreen(ennemies)
-    if(player.x > 4700){
-        this.cameras.main.setBounds(4700, 0, worldWidth, 600);
-        platforms.create(4700, levelY-30,"stop").setVisible(false   );
 
-        ennemies.children.entries.forEach(element => {
-                element.destroy();
-        });
-        aspicots.children.entries.forEach(element => {
-                    element.destroy();
-        });
-        bullets.children.entries.forEach(element => {
-            element.destroy();
-        });
-                
-     
+    // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
+
+    destroyFireballs(this)
+    destroyOffScreen(ennemies)
+
+    
+    if(player.x <4700 && !frontOfBoss){
+
+       sendCrossingEnnemy(this);
+       sendFlyingEnnemy(this);
+    }
+    if(player.x > 4700){
+    prepareForBoss(this);
+    bossPattern(this)
+    }
+    playerCommands(this);
+    rangeAttack(aspicots, this)
+
+    if (bossLifeMax === bossHitPoints){
+        this.cameras.main.setBounds(worldWidth-800, 0, worldWidth, 0);
+        this.cameras.main.stopFollow(player);
+        if (player.x < worldWidth-800 ){
+            player.setX(worldWidth-700)
+        }
 
 
     }
 
-    this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-   if(player.x <4700){
-       sendCrossingEnnemy(this);
-       sendFlyingEnnemy(this);
-   }
-    playerCommands(this);
-    rangeAttack(aspicots, this)
-
-
-
 }
-
-
-
 
 

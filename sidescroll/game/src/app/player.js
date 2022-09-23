@@ -39,22 +39,18 @@ function playerCommands(game){
 
     if(Phaser.Input.Keyboard.JustDown(keyAttack)) {
 
-        console.log('I key pressed')
         player.setVelocityX(0);
 
         player.anims.play('fireHit', true)
         fireball();
 
      } else if(keyJ.isDown) {
-        console.log('J key pressed')
 
      } else if(keyK.isDown) {
-        console.log('K key pressed')        
         player.setVelocityX(-160);
 
         player.anims.play('left', true);
      } else if(keyL.isDown) {
-        console.log('L key pressed')
      }
 }
 
@@ -90,10 +86,12 @@ function hitEnnemy (player, ennemy)
         player.setTint(0xff0000);
     
         player.anims.play('turn');
+
+        gameOverX = this.cameras.main.midPoint.x - 350
     
-        this.add.text(50, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
+        this.add.text(gameOverX, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
     
-        const replayButton =this.add.text(100, 350, 'try again', {fontSize: '32px', fill: "#000"})
+        const replayButton =this.add.text(gameOverX+50, 350, 'try again', {fontSize: '32px', fill: "#000"})
                                     .setInteractive()
                                     .on("pointerdown",()=>{
                                         restartGame()
@@ -102,7 +100,6 @@ function hitEnnemy (player, ennemy)
         gameOver = true;        
     }else{
         ennemy.body.checkCollision.none = true
-        console.log(ennemy)
     }
    
 }
@@ -111,7 +108,6 @@ function hitEnnemy (player, ennemy)
 // et faire le switchcase en fonction de l'objet plutôt que d'une string
 function fireball(){
     destroyOffScreen(fireballs)
-    console.log(fireballs.countActive(true))
     // if(fireballs.countActive(true)){
         var fireball=fireballs.create(player.x,player.y, 'fireball');
 

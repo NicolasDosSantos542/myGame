@@ -128,7 +128,94 @@ function addAspicot(game){
 }
 
 function addBoss(game){
-    levelBoss = game.physics.add.sprite( 6200,200,'onixMove').setScale(5)
+    levelBoss = game.physics.add.sprite( 6250, 0, bossName+'Move').setScale(5)
+    bossLifeMax = 100;
     levelBoss.anims.play('onixMove', true)
+    lifeBar = game.add.image(levelBoss.x -500, 50, 'lifeBar')
+    lifeBarFull = game.add.image(lifeBar.x, lifeBar.y, 'lifeBarFull')
+
+}
+
+function zoneAttack(game){
+    let rocks_list = ["rock_1", "rock_2", "rock_3", "rock_4"];
+    let xMax = 5850;
+    let yMax = 100;
+
+    for (let i = 0; i < 8; i++) {
+        var ranNum = Math.ceil(Math.random() * 50   ) * (Math.round(Math.random()) ? 1 : -1)
+        let x= xMax + ranNum
+
+        let y = Math.floor(Math.random() * yMax)
+        let randomRock = rocks_list[Math.floor(Math.random() * rocks_list.length)];
+
+        rocks.create(x-(150*i),y, randomRock)
+    }
+}
+
+function lowAttack(){
+    let skater = levelBoss.anims.play(bossName+'Attacks',true);
+    skater.on('animationcomplete', ()=>{
+        levelBoss.setVelocityY(-200)
+        rockAttack = rocks.create(5995,480, "rock_1").setVelocityX(-500)
+        rockAttack.body.allowGravity = false
+        levelBoss.anims.play('onixMove', true)
+    })
+
+
+
+}
+function bossReceiveAttack(levelBoss, fireball) {
+    fireball.destroy()
+    bossHitPoints += playerPower;
+    levelBoss.setVelocityX(0);
+    hitpointsBar =1-( bossHitPoints / bossLifeMax) 
+    lifeBarFull.setScale(hitpointsBar,1)
+
+    if(bossHitPoints == bossLifeMax){
+        levelBoss.anims.play('onixDie', true);
+        levelBoss.setActive(false)
+        lifeBar.destroy();
+        lifeBarFull.destroy();
+        stop_before_boss.destroy();
+        levelBoss.anims.stop()
+        
+
+    }
+
+
+
+}
+
+function bossPattern(game){
+    destroyOffScreen(rocks)
+
+    if(levelBoss.active === false){
+        console.log("boss is dead")
+        return;
+    }
+
+    if(game.time.now < bossNextAttack) {
+        return;
+    }
+
+    bossNextAttack = game.time.now + bossRate;
+
+    if(bossStatus == 1){
+        zoneAttack(game)
+        bossStatus = 0;
+        bossLastStatus = 1
+    }else if(bossStatus == -1){
+        lowAttack()
+        bossStatus = 0
+        bossLastStatus = -1
+    }else if(bossStatus==0 && (bossLastStatus == 1 || bossLastStatus == -1)) {
+        bossStatus = bossLastStatus * -1;
+        bossLastStatus = 0;
+        return
+    }else{
+        bossStatus =1;
+
+    }
+
 
 }
