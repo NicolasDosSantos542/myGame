@@ -18,8 +18,8 @@ class LevelOne extends Phaser.Scene {
     create (){
     
         this.cameras.main.setBounds(0, 0, worldWidth, 600);
-        
         createLevelOne(this);
+        
         
         createPlayer(this)
         this.cameras.main.startFollow(player);
@@ -43,24 +43,14 @@ class LevelOne extends Phaser.Scene {
         
         addColliders(this)  //doit être impérativement APRÈS les monstres, personnages et plateformes 
 
-        // this.input.once('pointerdown', function () {
-
-        //     //  Get a random color
-        //     var red = Phaser.Math.Between(50, 255);
-        //     var green = Phaser.Math.Between(50, 255);
-        //     var blue = Phaser.Math.Between(50, 255);
-
-        //     this.scene.restart();
-        // }, this);
-
-        // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
-        console.log(scoreText)
+        this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
     }
     
     
     update () {
-        let scoreTextX = this.cameras.main.midPoint.x - 384;
-        scoreText.setPosition(scoreTextX, 16)
+        let textX = this.cameras.main.midPoint.x - 384;
+        scoreText.setPosition(textX, 16)
+        playerPowerText.setPosition(textX, 42)
     
         destroyFireballs(this)
         destroyOffScreen(ennemies)
@@ -77,13 +67,18 @@ class LevelOne extends Phaser.Scene {
         }
         playerCommands(this);
         rangeAttack(aspicots, this)
-    
-        if (bossLifeMax === bossHitPoints){
+        if(this.cameras.main.midPoint.x >= worldWidth-600 || stopFollow){
+            stopFollow = true;
             this.cameras.main.setBounds(worldWidth-800, 0, worldWidth, 0);
             this.cameras.main.stopFollow(player);
+
+        }
+    
+        if (  bossHitPoints >= bossLifeMax){
             if (player.x < worldWidth-800 ){
                 player.setX(worldWidth-700)
             }
+            levelBoss.setActive(false).setVisible(false);
     
     
         }

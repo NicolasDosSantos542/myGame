@@ -4,6 +4,8 @@ var player;
 var fireballs;
 var playerPower = 1;
 var frontOfBoss = false
+var stopFollow= false;
+var playerPowerText;
 
 var platforms;
 let player_invisible_stop;

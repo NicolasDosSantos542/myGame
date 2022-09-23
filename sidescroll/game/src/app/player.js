@@ -3,7 +3,7 @@
 
 function createPlayer(game){
 
-    player = game.physics.add.sprite(100, 450, 'salamecheMove');
+    player = game.physics.add.sprite(10, 450, 'salamecheMove');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
     player.flipX = -1
@@ -59,7 +59,9 @@ function collectBall (player, ball)
     ball.disableBody(true, true);
 
     score += 10;
-    scoreText.setText('Score: ' + score);
+    playerPower += 0.5
+    scoreText.setText('score: ' + score);
+    playerPowerText.setText('power : ' + playerPower)
 
     if (balls.countActive(true) === 0)
     {
@@ -91,7 +93,7 @@ function hitEnnemy (player, ennemy)
     
         this.add.text(gameOverX, 250, 'Game Over', { fontSize: '128px', fill: '#000' });
     
-        const replayButton =this.add.text(gameOverX+50, 350, 'try again', {fontSize: '32px', fill: "#000"})
+        const replayButton =this.add.text(gameOverX+100, 375, 'F5 to restart', {fontSize: '32px', fill: "#000"})
                                     .setInteractive()
                                     .on("pointerdown",()=>{
                                         restartGame(this)

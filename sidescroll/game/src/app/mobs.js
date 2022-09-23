@@ -104,13 +104,13 @@ function sendFlyingEnnemy(game, ){
 }
      
 
-function reverseEnnemy(pikachu, invisible_stop){
-    if(pikachu.flipX == true){
-        pikachu.flipX = false;
-        pikachu.setVelocityX (-160);
+function reverseEnnemy(ennemy, invisible_stop){
+    if(ennemy.flipX == true){
+        ennemy.flipX = false;
+        ennemy.setVelocityX (-160);
     }else{
-        pikachu.flipX = true;
-        pikachu.setVelocityX (160);
+        ennemy.flipX = true;
+        ennemy.setVelocityX (160);
     }
 }
 
@@ -171,7 +171,7 @@ function bossReceiveAttack(levelBoss, fireball) {
     hitpointsBar =1-( bossHitPoints / bossLifeMax) 
     lifeBarFull.setScale(hitpointsBar,1)
 
-    if(bossHitPoints == bossLifeMax){
+    if(bossHitPoints >= bossLifeMax){
         levelBoss.anims.play('onixDie', true);
         levelBoss.setActive(false)
         lifeBar.destroy();
@@ -190,7 +190,6 @@ function bossPattern(game){
     destroyOffScreen(rocks)
 
     if(levelBoss.active === false){
-        console.log("boss is dead")
         return;
     }
 
