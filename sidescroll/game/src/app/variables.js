@@ -19,7 +19,7 @@ let keyL;
 let pikachus;
 let invisible_stops;
 let ennemies;
-let playerVelocity = 1600;
+let playerVelocity = 160;
 let aspicots;
 let playerHitEnnemyCollider;
 let bullets;
@@ -31,11 +31,12 @@ let spawnRate = 3000;
 let runnerEnnemy = "rattata"
 let flyingEnnemy = "roucoups";
 
+let stop_before_boss; 
 let levelBoss;
 let bossName = "onix";
 let bossHitPoints = 0;
 let bossLifeMax;
-let bossRate = 5000;
+let bossRate = 3000;
 let bossStatus;
 let bossLastStatus;
 let bossNextAttack;

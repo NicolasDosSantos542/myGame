@@ -24,6 +24,8 @@ function addColliders(game){
 
     game.physics.add.collider(player, bombs, hitEnnemy, null, game);
     game.physics.add.collider(player, bullets, hitEnnemy, null, game);
+    game.physics.add.collider(player, rocks, hitEnnemy, null, game);
+    
 
     game.physics.add.collider(fireballs, [platforms], fireballCollide, null, game);
 
@@ -39,7 +41,7 @@ function addColliders(game){
 
 
 
-    // playerHitEnnemyCollider = game.physics.add.collider(player, [pikachus, aspicots, ennemies, bullets], hitEnnemy, null, game );
+    playerHitEnnemyCollider = game.physics.add.collider(player, [pikachus, aspicots, ennemies, bullets], hitEnnemy, null, game );
 
 }
 
@@ -64,6 +66,7 @@ function addProjectiles(game){
 function restartGame(){
     game.registry.destroy(); // destroy registry
     game.events.off(); // disable all active events
-    game.scene.restart(); // restart current scene
-
+    game.scene.stop(); // restart current scene
+    game.scene.start();
+    console.log("scene = " , game.scene)
 }

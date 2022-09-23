@@ -1,4 +1,4 @@
-const worldWidth = 6000;
+const worldWidth = 6374;
 
 var config = {
     type: Phaser.AUTO,
@@ -30,6 +30,7 @@ function preload ()
 
 
 function create (){
+    let toto = new Scene();
     this.cameras.main.setBounds(0, 0, worldWidth, 600);
     
     createLevelOne(this);
@@ -62,6 +63,7 @@ function update () {
 
     // this.input.on('pointerdown', () =>console.log({ "x" : game.input.pointers[0].worldX, "y" : game.input.pointers[0].worldY}));
 
+    destroyFireballs(this)
     destroyOffScreen(ennemies)
 
     
@@ -77,7 +79,15 @@ function update () {
     playerCommands(this);
     rangeAttack(aspicots, this)
 
+    if (bossLifeMax === bossHitPoints){
+        this.cameras.main.setBounds(worldWidth-800, 0, worldWidth, 0);
+        this.cameras.main.stopFollow(player);
+        if (player.x < worldWidth-800 ){
+            player.setX(worldWidth-700)
+        }
 
+
+    }
 
 }
 

@@ -131,10 +131,8 @@ function addBoss(game){
     levelBoss = game.physics.add.sprite( 6250, 0, bossName+'Move').setScale(5)
     bossLifeMax = 100;
     levelBoss.anims.play('onixMove', true)
-    console.log("levelBoss", levelBoss)
     lifeBar = game.add.image(levelBoss.x -500, 50, 'lifeBar')
     lifeBarFull = game.add.image(lifeBar.x, lifeBar.y, 'lifeBarFull')
-    console.log(lifeBarFull)
 
 }
 
@@ -171,14 +169,17 @@ function bossReceiveAttack(levelBoss, fireball) {
     bossHitPoints += playerPower;
     levelBoss.setVelocityX(0);
     hitpointsBar =1-( bossHitPoints / bossLifeMax) 
-    console.log("hit poins bar = ", hitpointsBar)
     lifeBarFull.setScale(hitpointsBar,1)
-    console.log(lifeBarFull)
 
     if(bossHitPoints == bossLifeMax){
         levelBoss.anims.play('onixDie', true);
-        this.physics.pause();
-        player.anims.stop()
+        levelBoss.setActive(false)
+        lifeBar.destroy();
+        lifeBarFull.destroy();
+        stop_before_boss.destroy();
+        levelBoss.anims.stop()
+        
+
     }
 
 
@@ -187,8 +188,9 @@ function bossReceiveAttack(levelBoss, fireball) {
 
 function bossPattern(game){
     destroyOffScreen(rocks)
-    if(bossHitPoints == bossLifeMax){
-        levelBoss.anims.stop()
+
+    if(levelBoss.active === false){
+        console.log("boss is dead")
         return;
     }
 
