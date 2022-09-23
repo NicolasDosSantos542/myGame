@@ -94,7 +94,7 @@ function hitEnnemy (player, ennemy)
         const replayButton =this.add.text(gameOverX+50, 350, 'try again', {fontSize: '32px', fill: "#000"})
                                     .setInteractive()
                                     .on("pointerdown",()=>{
-                                        restartGame()
+                                        restartGame(this)
                                     })
     
         gameOver = true;        

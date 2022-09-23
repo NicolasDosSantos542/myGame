@@ -32,7 +32,8 @@ function createLevelOne(game){
         
         invisible_stops.create(stopX, levelY-30).setVisible(false);
     }))
-    
+    //truelle
+    console.log("camera.main", game.cameras.main)
 
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 

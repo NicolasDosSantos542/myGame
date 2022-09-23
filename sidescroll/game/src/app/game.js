@@ -63,10 +63,9 @@ function addProjectiles(game){
 }
 
 
-function restartGame(){
+function restartGame(game){
     game.registry.destroy(); // destroy registry
     game.events.off(); // disable all active events
-    game.scene.stop(); // restart current scene
-    game.scene.start();
-    console.log("scene = " , game.scene)
+    game.scene.restart();
+    console.log("scene = " , game)
 }
